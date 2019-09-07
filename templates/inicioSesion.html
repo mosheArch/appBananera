@@ -36,8 +36,9 @@
 				<span class="login100-form-title p-b-41">
 					Iniciar sesión
 				</span>
-				<form class="login100-form validate-form p-b-33 p-t-5" action="{% url 'bananera' %}">
-
+				<form class="login100-form validate-form p-b-33 p-t-5" action="{% url 'home' %}" method="post">
+                {% csrf_token %}
+                    {{ form.as_p}}
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="username" placeholder="Usuario">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
@@ -55,6 +56,8 @@
 					</div>
 
 				</form>
+                {% block contenedor %}
+                {% endblock contenedor %}
 			</div>
 		</div>
 	</div>

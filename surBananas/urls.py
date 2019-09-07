@@ -1,9 +1,13 @@
 from surBananas import views
 from django.urls import path
 
+
 urlpatterns = [
-    path('bananera', views.bananera, name = 'bananera'),
-    path('empleados', views.empleados, name = 'empleados'),
+    path('', views.Home, name = 'home'),
     path('capacitaciones', views.capacitaciones, name = 'capacitaciones'),
-    path('', views.login, name='login'),
+    path('addEmpleado', views.CrearEmpleado.as_view(), name = 'addEmpleado'),
+    path('listaEmpleado', views.ListaEmpleado.as_view(), name = 'lista'),
+    path('editarEmpleado/<int:pk>', views.ActualizarEmpleado.as_view(), name = 'editarEmpleado'),
+    path('eliminarEmpleado/<int:pk>', views.EliminarEmpleado.as_view(), name = 'eliminarEmpleado'),
+
 ]

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block contenido %}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title ">Eliminar Empleado</h4>
+                        </div>
+                        <div class="card-body" align="center">
+                            <form method="post">
+
+                                {% csrf_token %}
+                                <div class="alert alert-danger" align="center">
+                                    <span><b> <h3>Alerta</h3>  </b> <h4>¿Esta seguro que desea eliminar este registro para {{ object }}?</h4></span>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-danger btn-round">
+                                    <i class="material-icons">delete</i>Eliminar
+                                </button>
+                            </form>
+                            <form action="{% url 'lista' %}">
+                                <button class="btn btn-success btn-round">
+                                    <i class="material-icons">subdirectory_arrow_left</i>Cancelar
+                                </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}

@@ -9,8 +9,8 @@ class progrmasCapacitacion(models.Model):
 
 class empleados(models.Model):
     nombres = models.CharField(max_length=20, blank=True, null=True)
-    apelidoPaterno = models.CharField(max_length=20, blank=True, null=True)
-    apelidoMaterno = models.CharField(max_length=20, blank=True, null=True)
+    apellidoPaterno = models.CharField(max_length=20, blank=True, null=True)
+    apellidoMaterno = models.CharField(max_length=20, blank=True, null=True)
     edad = models.IntegerField(blank=True, null=True)
     fechaNacimiento = models.DateField(auto_now=False, blank=True, null=True)
     numeroSeguroSocial = models.IntegerField(blank=True, null=True)
@@ -27,7 +27,9 @@ class empleados(models.Model):
     ciudad = models.CharField(max_length=200, blank=True, null=True)
     colonia = models.CharField(max_length=200, blank=True, null=True)
     codigoPostal = models.IntegerField(blank=True, null=True)
-    imagen = models.FileField(upload_to="aquivalaruta", blank=True, null=True)
+    estado = models.CharField(max_length=20, blank=True, null=True)
+    imagen = models.FileField(upload_to="fotos/", blank=True, null=True)
+    status = models.BooleanField('Estado', default= True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     programas = models.ManyToManyField(progrmasCapacitacion, through='capacitacion')
 
