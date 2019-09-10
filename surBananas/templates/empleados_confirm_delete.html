@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'indexAdmin.html' %}
 {% block contenido %}
     <div class="content">
         <div class="container-fluid">
@@ -13,20 +13,24 @@
 
                                 {% csrf_token %}
                                 <div class="alert alert-danger" align="center">
-                                    <span><b> <h3>Alerta</h3>  </b> <h4>¿Esta seguro que desea eliminar este registro para {{ object }}?</h4></span>
+                                    <span><b> <h3>Alerta</h3>  </b> <h4>¿Esta seguro que desea eliminar este registro para {{ empleados.nombres }}?</h4></span>
                                 </div>
 
 
-                                <button type="submit" class="btn btn-danger btn-round">
-                                    <i class="material-icons">delete</i>Eliminar
+                                <button type="submit" class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                            </span>
+                                    <span class="text">Eliminar</span>
                                 </button>
+                                <a href="{% url 'lista'%}" class="btn btn-success btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                 <i class="fas fa-undo-alt"></i>
+                                            </span>
+                                    <span class="text">Regresar</span>
+                                </a>
                             </form>
-                            <form action="{% url 'lista' %}">
-                                <button class="btn btn-success btn-round">
-                                    <i class="material-icons">subdirectory_arrow_left</i>Cancelar
-                                </button>
 
-                            </form>
                         </div>
                     </div>
                 </div>

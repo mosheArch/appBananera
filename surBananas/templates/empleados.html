@@ -1,309 +1,102 @@
-{% extends 'base.html' %}
-
+{% extends 'indexAdmin.html' %}
+<!DOCTYPE html>
+<html lang="en">
 {% block title %}
     <title>Surbananas - empleados</title>
 {% endblock title%}
-
-{% comment %}{% block navs %}
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
-
-              <li class="nav-item dropdown">
-               <a class="" href="#" data-toggle="modal" data-target="#modalRegisterForm">
-                <i class="material-icons" >person_add</i>
-               </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
-
-    <!-- MODAL AGREGAR EMPLEADO-->
-    <div class="modal fade bd-example-modal-lg" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true" >
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-        <div class="card">
-            <div class="card-header card-header-success">
-
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="material-icons" >clear</i>
-                    </button>
-
-                  <h3 class="card-title">Agregar Empleado</h3>
-                </div>
-                <div class="card-body">
-                  <form method="post">
-
-                    <div class="row">
-                        {{ empleado_form.as_p}}
-                        {% csrf_token %}
-                      <button type="submit">Agregar</button>
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Company (disabled)</label>
-                          <input type="text" class="form-control" disabled>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Nombres</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Apellido Paterno</label>
-                          <input type="email" class="form-control">
-                        </div>
-                      </div>
-
-
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating" >Apellido Materno</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <br><br><br>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">RFC</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">CURP</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Seguro social</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <br><br><br>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Edad</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Telefono</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Celular</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <br><br><br>
-                        <div class="col-md-4">
-                        <div class="form-group"><br>
-                          <label class="bmd-label-floating">Fecha de Nacimiento</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="inputState" class="bmd-label-floating">Estado civil</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected >Selecionar</option>
-                                    <option>Casado</option>
-                                    <option>Soltero</option>
-                                    <option>Viudo</option>
-                                    <option>Divorciado</option>
-                                    <option>Union Libre</option>
-                                </select>
-                        </div>
-                        </div>
-                        <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="inputState" class="bmd-label-floating">Nacionalidad</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected >Selecionar</option>
-                                    <option>Mexicana</option>
-                                    <option>Extranjero</option>
-                                </select>
-                        </div>
-                        </div><br><br><br><br><br>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Area</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Labor</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="exampleFormControlFile1">Cargar Imagen</label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                </div>
-                            </div>
-
-                        </div>
-
-                      <br><br><br>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Dirección</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                        <br><br><br>
-
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Ciudad</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Colonia</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Codigo Postal</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-success pull-right">Guardar</button>
-                    <div class="clearfix"></div>
-                  </form>
-                </div>
-              </div>
-
-
-
-    </div>
-  </div>
-</div>
-
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Launch
-    Modal Register Form</a>
-</div>
-{% endblock navs %}{% endcomment %}
-
 {% block contenido %}
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header card-header-warning">
-                            <h4 class="card-title ">Lista de Empleados</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                {% if empleados %}
-                                    <table class="table  table-condensed" table-list>
-                                        <thead class=" text-primary">
-                                        <th>ID</th>
-                                        <th>Nombres</th>
-                                        <th>Apellido Paterno</th>
-                                        <th>Apellido Materno</th>
-                                        <th>Edad</th>
-                                        <th>Fecha de Nacimiento</th>
-                                        <th>Número de Seguro Social</th>
-                                        <th>CURP</th>
-                                        <th>RFC</th>
-                                        <th>Estado Civil</th>
-                                        <th>Nacionalidad</th>
-                                        <th>Area</th>
-                                        <th>Labor</th>
-                                        <th>Telefono</th>
-                                        <th>Celular</th>
-                                        <th>Correo electronico</th>
-                                        <th>Drección</th>
-                                        <th>Ciudad</th>
-                                        <th>Colonia</th>
-                                        <th>Codigo Postal</th>
-                                        <th>Estado</th>
-                                        <th>Imagen</th>
-                                        <th>Fecha de Ingreso</th>
-                                        <th>ACCIONES</th>
-
-                                        </thead>
-                                        <tbody>
-                                        {% for e in empleados %}
-                                            <tr>
-                                                <td> {{ e.id }} </td>
-                                                <td> {{ e.nombres }} </td>
-                                                <td> {{ e.apellidoPaterno }} </td>
-                                                <td> {{ e.apellidoMaterno }} </td>
-                                                <td> {{ e.edad }} </td>
-                                                <td> {{ e.fechaNacimiento }} </td>
-                                                <td>{{ e.numeroSeguroSocial }}</td>
-                                                <td> {{ e.curp }} </td>
-                                                <td> {{ e.rfc }} </td>
-                                                <td> {{ e.estadoCivil }} </td>
-                                                <td> {{ e.nacionalidad }} </td>
-                                                <td> {{ e.area }} </td>
-                                                <td> {{ e.labor }} </td>
-                                                <td> {{ e.telefono }} </td>
-                                                <td> {{ e.celular }} </td>
-                                                <td> {{ e.correoElectronico }} </td>
-                                                <td> {{ e.direccion }} </td>
-                                                <td> {{ e.ciudad }} </td>
-                                                <td> {{ e.colonia }} </td>
-                                                <td> {{ e.codigoPostal }} </td>
-                                                <td> {{ e.estado }}</td>
-                                                <td> {{ e.imagen }} </td>
-                                                <td> {{ e.created_at }} </td>
-                                                <td><a href="{% url 'editarEmpleado' e.id %}">Editar</a></td>
-                                                <td><a href="{% url 'eliminarEmpleado' e.id %}">Eliminar</a></td>
-                                            </tr>
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                {% else %}
-                                    <h1>NOT FOUND</h1>
-                                    </div>
-                                {% endif %}
-                        </div>
-                    </div>
-                </div>
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Lista de Empleados</h6>
             </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    {% if empleados %}
+                        <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
+
+                            <thead class=" text-primary">
+                            <th>ID</th>
+                            <th>Nombres</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Edad</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Número de Seguro Social</th>
+                            <th>CURP</th>
+                            <th>RFC</th>
+                            <th>Estado Civil</th>
+                            <th>Nacionalidad</th>
+                            <th>Area</th>
+                            <th>Labor</th>
+                            <th>Telefono</th>
+                            <th>Celular</th>
+                            <th>Correo electronico</th>
+                            <th>Drección</th>
+                            <th>Ciudad</th>
+                            <th>Colonia</th>
+                            <th>Codigo Postal</th>
+                            <th>Estado</th>
+                            <th>Imagen</th>
+                            <th>Fecha de Ingreso</th>
+                            <th>ACCIONES</th>
+
+                            </thead>
+                            <tbody>
+                            {% for e in empleados %}
+                                <tr>
+                                    <td> {{ e.id }} </td>
+                                    <td> {{ e.nombres }} </td>
+                                    <td> {{ e.apellidoPaterno }} </td>
+                                    <td> {{ e.apellidoMaterno }} </td>
+                                    <td> {{ e.edad }} </td>
+                                    <td> {{ e.fechaNacimiento }} </td>
+                                    <td>{{ e.numeroSeguroSocial }}</td>
+                                    <td> {{ e.curp }} </td>
+                                    <td> {{ e.rfc }} </td>
+                                    <td> {{ e.estadoCivil }} </td>
+                                    <td> {{ e.nacionalidad }} </td>
+                                    <td> {{ e.area }} </td>
+                                    <td> {{ e.labor }} </td>
+                                    <td> {{ e.telefono }} </td>
+                                    <td> {{ e.celular }} </td>
+                                    <td> {{ e.correoElectronico }} </td>
+                                    <td> {{ e.direccion }} </td>
+                                    <td> {{ e.ciudad }} </td>
+                                    <td> {{ e.colonia }} </td>
+                                    <td> {{ e.codigoPostal }} </td>
+                                    <td> {{ e.estado }}</td>
+                                    <td> {{ e.imagen }} </td>
+                                    <td> {{ e.created_at }} </td>
+                                    <td>
+                                        <a href="{% url 'editarEmpleado' e.id %}" class="btn btn-primary btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                 <i class="fas fa-edit"></i>
+                                            </span>
+                                            <span class="text">Editar</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'eliminarEmpleado' e.id %}" class="btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span class="text">Eliminar</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h1>NOT FOUND</h1>
+                        </div>
+                    {% endif %}
+            </div>
+
         </div>
     </div>
 
+
+    </html>
 {% endblock contenido %}

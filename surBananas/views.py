@@ -1,31 +1,16 @@
 from django.shortcuts import render, redirect
-from django.core.exceptions import ObjectDoesNotExist
-from django.forms import ModelForm
-from django.http import HttpResponse
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DeleteView
 from .form import EmpleadosForm
 from .models import empleados
 from django.urls import reverse_lazy
 
 
+
 class Inicio(TemplateView):
     template_name = 'inicioSesion.html'
 
-def Home(request):
-    texto = {
-        'texto' : "Home"
-    }
-    return render(request, 'index.html', texto)
-
-
-def empleado(request):
-    texto = {
-        'texto' : "Empleados"
-    }
-    return render(request, 'empleados.html', texto)
-
+class Home(TemplateView):
+    template_name = 'index.html'
 
 def capacitaciones(request):
     texto = {
@@ -67,11 +52,3 @@ class EliminarEmpleado(DeleteView):
         object.status = False
         object.save()
         return redirect('lista')
-
-# def eliminarEmpleado(request, id):
-#     empleado = empleados.objects.get(id = id)
-#     if request.method == 'POST':
-#         empleado.status = False
-#         empleado.save()
-#         return redirect('lista')
-#     return render(request, 'empleados_confirm_delete.html', {'empleado': empleado})
