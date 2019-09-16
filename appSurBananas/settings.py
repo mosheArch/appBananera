@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'surBananas.apps.SurbananasConfig',
     'usuarios.apps',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [

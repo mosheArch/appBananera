@@ -1,9 +1,10 @@
 from django.db import models
 
-class progrmasCapacitacion(models.Model):
+class programasCapacitacion(models.Model):
     temaCapacitacion = models.TextField(max_length=50, blank=True, null=True)
     descripcionCapacitacion = models.TextField(max_length=100, blank=True, null=True)
     tipoCapacitacion = models.TextField(max_length=50, blank=True, null=True)
+    status = models.BooleanField('Estado', default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
@@ -31,30 +32,11 @@ class empleados(models.Model):
     imagen = models.FileField(upload_to="fotos/", blank=True, null=True)
     status = models.BooleanField('Estado', default= True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
-    programas = models.ManyToManyField(progrmasCapacitacion, through='capacitacion')
 
 
 class capacitacion(models.Model):
     empleado = models.ForeignKey(empleados, on_delete=models.CASCADE)
-    programas = models.ForeignKey(progrmasCapacitacion, on_delete=models.CASCADE)
+    programas = models.ForeignKey(programasCapacitacion, on_delete=models.CASCADE)
     fechaCapacitacion = models.DateField(auto_now=False, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
-
-# class planCapacitacion(models.Model):
-#     empleado = models.ForeignKey(empleados, on_delete=models.CASCADE)
-#     temaCapacitacion = models.TextField(max_length=50, blank=True, null=True)
-#     descripcionCapacitacion = models.TextField(max_length=100, blank=True, null=True)
-#     fechaCapacitacion = models.DateField(auto_now=False, blank=True, null=True)
-#
-# class planSalud(models.Model):
-#     empleado = models.ForeignKey(empleados, on_delete=models.CASCADE)
-#     temaPlanSalud = models.TextField(max_length=100, blank=True, null=True)
-#     descripcionTemaSalud = models.TextField(max_length=100, blank=True, null=True)
-#     fechaPlanSalud = models.DateField(auto_now=False, blank=True, null=True)
-#
-# class planMantenimieto(models.Model):
-#     empleado = models.ForeignKey(empleados, on_delete=models.CASCADE)
-#     temaPlanMantenimiento = models.TextField(max_length=100, blank=True, null=True)
-#     descripcionMantenimiento = models.TextField(max_length=100, blank=True, null=True)
-#     fechaMantenimiento = models.DateField(auto_now=False, blank=True, null=True)

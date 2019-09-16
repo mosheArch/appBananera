@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,21 +22,21 @@
 
 </head>
 
-<body class="bg-gradient-light" >
+<body style="background-image: url('/static/IndexAdmin/img/ba.jpg');">
 
   <div class="container">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="col-xl-6 col-lg-12 col-md-9">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
+        <div class="card o-hidden border-6 shadow-lg my-5">
+          <div class="card-body p-0" >
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block" style="background-image: url('/static/IndexAdmin/img/banana1.jpg');"></div>
-              <div class="col-lg-6">
+              <div class="col-lg-3 d-none d-lg-block" ></div>
+              <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Iniciar Sesión</h1>
@@ -43,12 +44,23 @@
 
                   <form class="user" method="post">
                         {% csrf_token %}
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="username">
+                         <div class="form-group">
+                        {% if form.errors %}
+                            {% for error in form.errors %}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss = 'alert' aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Usuario o contraseña incorrecta, vuleva a intentarlo </strong>
+                          </div>
+                            {% endfor %}
+                        {% endif %}
+
+                      {{ form.username }}
                     </div>
                       <hr>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
+                      {{ form.password }}
                     </div>
                       <hr>
                       <button type="submit" class="btn btn-primary btn-user btn-block"> Ingresar</button>

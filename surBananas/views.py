@@ -1,27 +1,50 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DeleteView
 from .form import EmpleadosForm
-from .models import empleados
+from .formProgramas import ProgramasCapacitacion
+from .models import empleados, programasCapacitacion
 from django.urls import reverse_lazy
 
 
 
 class Inicio(TemplateView):
-    template_name = 'inicioSesion.html'
-
-class Home(TemplateView):
+    model = empleados
+    form_class = EmpleadosForm
     template_name = 'index.html'
 
-def capacitaciones(request):
-    texto = {
-        'texto' : "Capacitaciones"
-    }
-    return render(request, 'capacitaciones.html', texto)
-
-class login(TemplateView):
-     template_name = 'login.html'
+class Home(TemplateView):
+    model = empleados
+    form_class = EmpleadosForm
+    template_name = 'index.html'
 
 
+class crearCapacitacion(CreateView):
+    model= programasCapacitacion
+    template_name = 'crearCapacitacion.html'
+    form_class = ProgramasCapacitacion
+    success_url =  reverse_lazy('lista')
+
+class ListaCapacitacion(ListView):
+    model = programasCapacitacion
+    template_name = 'capacitaciones.html'
+    context_object_name = 'capacitaciones'
+    queryset = programasCapacitacion.objects.filter(status=True)
+
+class ActualizarCapacitaciones(UpdateView):
+    model = programasCapacitacion
+    template_name = 'crearCapacitacion.html'
+    form_class = ProgramasCapacitacion
+    success_url = reverse_lazy('listaCapacitaciones')
+
+class EliminarCapacitaciones(DeleteView):
+    model = programasCapacitacion
+    template_name = 'capacitaciones_confirm_delete.html'
+
+    def post(self,request, pk, *args, **kwargs):
+        object = programasCapacitacion.objects.get(id = pk)
+        object.status = False
+        object.save()
+        return redirect('listaCapacitaciones')
 
 class CrearEmpleado(CreateView):
     model = empleados
