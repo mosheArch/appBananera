@@ -22,7 +22,7 @@ class crearCapacitacion(CreateView):
     model= programasCapacitacion
     template_name = 'crearCapacitacion.html'
     form_class = ProgramasCapacitacion
-    success_url =  reverse_lazy('listaCapacitacion')
+    success_url =  reverse_lazy('listaCapacitaciones')
 
 class ListaCapacitacion(ListView):
     model = programasCapacitacion
