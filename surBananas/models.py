@@ -19,7 +19,7 @@ class empleados(models.Model):
     rfc = models.CharField(max_length=20, blank=True, null=True)
     estadoCivil = models.CharField(max_length=20, blank=True, null=True)
     nacionalidad = models.CharField(max_length=20, blank=True, null=True)
-    area = models.CharField(max_length=30, blank=True, null=True)
+    area = models.CharField(max_length=30,blank=True, null=True)
     labor = models.CharField(max_length=20, blank=True, null=True)
     telefono = models.IntegerField(blank=True, null=True)
     celular = models.IntegerField(blank=True, null=True)
