@@ -96,18 +96,14 @@ class EmpleadosForm(forms.ModelForm):
 
                 }
             ),
-            'nacionalidad': forms.TextInput(
+            'nacionalidad': forms.Select(
                 attrs={
-                    'type': 'select',
-                    'class': 'form-control',
-                    'placeholder': 'Nacionalidad',
-
+                    'class': 'form-control'
                 }
             ),
-            'area': forms.TextInput(
+            'area': forms.Select(
                 attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Area',
+                    'class': 'form-control'
 
                 }
             ),

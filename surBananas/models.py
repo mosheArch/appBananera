@@ -9,6 +9,24 @@ class programasCapacitacion(models.Model):
 
 
 class empleados(models.Model):
+    choice_nacionalidad ={('', 'Nacionaidad'),('Mexicana','Mexicana'),('Extranjero','Extranjero')}
+    choice_area =(('','Área'),
+        ('Empaque',(
+            ('Estiba','Estiba'),
+            ('Empaque','Empaque'),
+            ('Fumigación','Fumigación'),
+            ('Selección', 'Selección'),
+            ('Clasificación','Clasificación'),
+            ('Desmane', 'Desmane'),
+        )),
+        ('Producción', (
+            ('Embolse', 'Embolse'),
+            ('Cosecha', 'Cosecha'),
+            ('Fumigación', 'Fumigación'),
+            ('Siembra', 'Siembra'),
+        )),
+
+    )
     nombres = models.CharField(max_length=20, blank=True, null=True)
     apellidoPaterno = models.CharField(max_length=20, blank=True, null=True)
     apellidoMaterno = models.CharField(max_length=20, blank=True, null=True)
@@ -18,8 +36,8 @@ class empleados(models.Model):
     curp = models.CharField(max_length=20, blank=True, null=True)
     rfc = models.CharField(max_length=20, blank=True, null=True)
     estadoCivil = models.CharField(max_length=20, blank=True, null=True)
-    nacionalidad = models.CharField(max_length=20, blank=True, null=True)
-    area = models.CharField(max_length=30,blank=True, null=True)
+    nacionalidad = models.CharField(choices=choice_nacionalidad, default='', max_length=20, blank=False)
+    area = models.CharField(choices=choice_area, default='', max_length=30, blank=False)
     labor = models.CharField(max_length=20, blank=True, null=True)
     telefono = models.IntegerField(blank=True, null=True)
     celular = models.IntegerField(blank=True, null=True)
