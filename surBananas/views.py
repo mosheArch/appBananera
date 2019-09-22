@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DeleteView
 from .form import EmpleadosForm
 from .formProgramas import ProgramasCapacitacion
-from .models import empleados, programasCapacitacion
+from .AreasForm import AreasForm
+from .models import empleados, programasCapacitacion, areas
 from django.urls import reverse_lazy
 
 
@@ -75,3 +76,31 @@ class EliminarEmpleado(DeleteView):
         object.status = False
         object.save()
         return redirect('lista')
+
+class CrearArea(CreateView):
+    model= areas
+    template_name = 'agregarArea.html'
+    form_class = AreasForm
+    success_url = reverse_lazy('listaAreas')
+
+class ListaArea(ListView):
+    model = areas
+    template_name = 'areas.html'
+    context_object_name = 'areas'
+    queryset = areas.objects.filter(status=True)
+
+class ActualizarAreas(UpdateView):
+    model = areas
+    template_name = 'agregarArea.html'
+    form_class = AreasForm
+    success_url = reverse_lazy('listaAreas')
+
+class EliminarArea(DeleteView):
+    model = areas
+    template_name = 'area_confirm_delete.html'
+
+    def post(self,request, pk, *args, **kwargs):
+        object = areas.objects.get(id = pk)
+        object.status = False
+        object.save()
+        return redirect('listaAreas')

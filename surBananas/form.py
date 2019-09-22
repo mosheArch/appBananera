@@ -103,7 +103,8 @@ class EmpleadosForm(forms.ModelForm):
             ),
             'area': forms.Select(
                 attrs={
-                    'class': 'form-control'
+                    'class': 'form-control',
+                    'placeholder': 'Área'
 
                 }
             ),

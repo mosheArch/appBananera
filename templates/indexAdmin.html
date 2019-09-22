@@ -62,6 +62,20 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                <i class="fas fa-city"></i>
+                    <span>Áreas</span>
+            </a>
+            <div id="collapse4" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Menú de Areas :</h6>
+                    <a class="collapse-item" href="{% url 'crearArea' %}">Agregar Área</a>
+                    <a class="collapse-item" href="{% url 'listaAreas' %}">Listar Áreas</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-user-plus"></i>
                 <span>Empleados</span>
@@ -102,6 +116,8 @@
                 </div>
             </div>
         </li>
+
+
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
