@@ -69,16 +69,19 @@
                                                 {{ form.nacionalidad }}
                                             </div>
                                         </div>
+
                                         <div class="col-md-4">Área o Puesto
                                             <div class="form-group">
                                                  {{ form.area }}
                                              </div>
                                         </div>
-                                        <div class="col-md-4">
+
+                                       {% comment %} <div class="col-md-4">
                                             <div class="form-group">
                                                 {{ form.labor }}
                                             </div>
-                                        </div>
+                                        </div>{% endcomment %}
+
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 {{ form.telefono }}
@@ -94,12 +97,13 @@
                                                 {{ form.correoElectronico }}
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-12">
 
                                                 {{ form.imagen}}
 
                                         </div>
-                                        <div class="col-md-12">
+
+                                        <div class="col-md-12"><br>
                                             <div class="form-group">
                                                 {{ form.direccion }}
                                             </div>

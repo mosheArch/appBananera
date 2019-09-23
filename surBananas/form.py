@@ -2,13 +2,13 @@ from django import forms
 from .models import empleados
 class EmpleadosForm(forms.ModelForm):
     class Meta:
-        model =  empleados
+        model = empleados
         fields = ['nombres', 'apellidoPaterno', 'apellidoMaterno', 'edad', 'fechaNacimiento', 'numeroSeguroSocial','curp', 'rfc', 'estadoCivil',
-                  'nacionalidad', 'area', 'labor', 'telefono', 'celular', 'correoElectronico', 'direccion', 'ciudad', 'colonia', 'codigoPostal', 'estado', 'imagen']
+                  'nacionalidad', 'area', 'telefono', 'celular', 'correoElectronico', 'direccion', 'ciudad', 'colonia', 'codigoPostal', 'estado', 'imagen']
 
         labels = {'class': 'bmd-label-floating',
-                  'nombres':'',
-                  'apellidoPaterno':'',
+                  'nombres': '',
+                  'apellidoPaterno': '',
                   'apellidoMaterno': '',
                   'edad': '',
                   'fechaNacimiento': '',
@@ -18,15 +18,14 @@ class EmpleadosForm(forms.ModelForm):
                   'estadoCivil': '',
                   'nacionalidad': '',
                   'area': '',
-                  'labor': '',
                   'telefono': '',
                   'celular': '',
                   'correoElectronico':'',
                   'direccion':'',
                   'ciudad': '',
                   'colonia': '',
-                  'codigoPostal':'',
-                  'estado':'',
+                  'codigoPostal': '',
+                  'estado': '',
                   'imagen': ''
                   }
 
@@ -103,18 +102,17 @@ class EmpleadosForm(forms.ModelForm):
             ),
             'area': forms.Select(
                 attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Área'
+                    'class': 'form-control'
 
                 }
             ),
-            'labor': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Labor',
-
-                }
-            ),
+            # 'labor': forms.TextInput(
+            #     attrs={
+            #         'class': 'form-control',
+            #         'placeholder': 'Labor',
+            #
+            #     }
+            # ),
             'telefono': forms.TextInput(
                 attrs={
                     'class': 'form-control',

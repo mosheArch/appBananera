@@ -9,7 +9,7 @@ class programasCapacitacion(models.Model):
 
 
 class areas(models.Model):
-    choice_riesgo ={('', 'Tipos de riesgo'),('Físico','Físico'),('Quimico','Quimico')}
+    choice_riesgo ={('', 'Tipos de riesgo'),('Físico','Físico'),('Quimico','Quimico'), ('Físico y Quimico','Físico y Quimico')}
     choice_fase ={('', 'Fases'),('Unidad de Empaque','Unidad de Empaque'),('Unidad de Producción','Unidad de Producción')}
     choice_puesto= (('', 'Áreas y Puestos'),
                    ('1.- Unidad de Empaque', (
@@ -68,6 +68,8 @@ class areas(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
+        if self.puesto == None:
+            return "----------"
         return self.puesto
 
 
@@ -102,7 +104,7 @@ class empleados(models.Model):
     estadoCivil = models.CharField(max_length=20, blank=True, null=True)
     nacionalidad = models.CharField(choices=choice_nacionalidad, default='', max_length=20, blank=False)
     #area = models.CharField(choices=choice_area, default='', max_length=30, blank=False)
-    labor = models.CharField(max_length=20, blank=True, null=True)
+    #labor = models.CharField(max_length=20, blank=True, null=True)
     telefono = models.IntegerField(blank=True, null=True)
     celular = models.IntegerField(blank=True, null=True)
     correoElectronico = models.EmailField(max_length=50, blank=True, null=True)
