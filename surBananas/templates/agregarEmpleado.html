@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-warning">
-                            <h4 class="card-title">Agregar Empleado</h4>
+                            <h4 class="card-title m-0 font-weight-bold text-primary" > AGREGAR EMPLEADO</h4>
                         </div>
                         <div class="card-body">
                             <form method="post" enctype="multipart/form-data">
@@ -39,22 +39,22 @@
                                                 {{ form.edad }}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
+                                        <div class="col-md-3 m-0 font-weight-bold text-primary">
+                                            <div class="form-group">Fecha de Nacimiento
                                                 {{ form.fechaNacimiento }}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3"><br>
                                             <div class="form-group">
                                                 {{ form.numeroSeguroSocial }}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3"><br>
                                             <div class="form-group">
                                                 {{ form.curp }}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3"><br>
                                             <div class="form-group">
                                                 {{ form.rfc }}
                                             </div>
@@ -70,7 +70,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">Área o Puesto
+                                        <div class="col-md-4 m-0 font-weight-bold text-primary">Área o Puesto
                                             <div class="form-group">
                                                  {{ form.area }}
                                              </div>
@@ -82,61 +82,61 @@
                                             </div>
                                         </div>{% endcomment %}
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-4"><br>
                                             <div class="form-group">
                                                 {{ form.telefono }}
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4"><br>
                                             <div class="form-group">
                                                 {{ form.celular }}
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4"><br>
                                             <div class="form-group">
                                                 {{ form.correoElectronico }}
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-
+                                        <div class="col-md-4 m-0 font-weight-bold text-primary"><br>
+                                            <div class="form-group">
                                                 {{ form.imagen}}
+                                            </div>
 
                                         </div>
 
-                                        <div class="col-md-12"><br>
+                                        <div class="col-md-4"><br>
                                             <div class="form-group">
                                                 {{ form.direccion }}
                                             </div>
                                         </div>
                                         <br><br><br>
 
-                                        <div class="col-md-3">
+                                        <div class="col-md-4"><br>
                                             <div class="form-group">
                                                 {{ form.ciudad }}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4"><br>
                                             <div class="form-group">
                                                 {{form.colonia}}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4"><br>
                                             <div class="form-group">
                                                 {{form.codigoPostal}}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4"><br>
                                             <div class="form-group">
                                                 {{form.estado }}
                                             </div>
                                         </div>
+                                         <button type="submit" class="btn btn-success pull-right">Guardar</button>
 
-
-                                        <button type="submit" class="btn btn-success pull-right">Guardar</button>
                                         <div class="clearfix"></div>
                                     {% endif %}
-                                </div>
 
+                                </div>
                             </form>
                         </div>
                     </div>

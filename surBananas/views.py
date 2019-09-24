@@ -3,7 +3,8 @@ from django.views.generic import TemplateView, ListView, UpdateView, CreateView,
 from .form import EmpleadosForm
 from .formProgramas import ProgramasCapacitacion
 from .AreasForm import AreasForm
-from .models import empleados, programasCapacitacion, areas
+from .CapacitacionForm import CapacitacionForm
+from .models import empleados, programasCapacitacion, areas, capacitacion
 from django.urls import reverse_lazy
 
 
@@ -104,3 +105,32 @@ class EliminarArea(DeleteView):
         object.status = False
         object.save()
         return redirect('listaAreas')
+
+'''Modelo para crar Capacitaciones'''
+class AgregarCapacitacion(CreateView):
+    model= capacitacion
+    template_name = 'agregarCapacitacion.html'
+    form_class = CapacitacionForm
+    success_url = reverse_lazy('listaAsignacion')
+
+class ListaAsignacion(ListView):
+    model = capacitacion
+    template_name = 'capacitacionEmpleado.html'
+    context_object_name = 'listaCapacitacion'
+    queryset = capacitacion.objects.filter(status=True)
+
+class ActualizarAsignacion(UpdateView):
+    model = capacitacion
+    template_name = 'agregarCapacitacion.html'
+    form_class = CapacitacionForm
+    success_url = reverse_lazy('listaAsignacion')
+
+class EliminarAsignacion(DeleteView):
+    model = capacitacion
+    template_name = 'asignacion_confirm_delete.html'
+
+    def post(self,request, pk, *args, **kwargs):
+        object = capacitacion.objects.get(id = pk)
+        object.status = False
+        object.save()
+        return redirect('listaAsignacion')

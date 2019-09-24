@@ -6,6 +6,10 @@ class programasCapacitacion(models.Model):
     tipoCapacitacion = models.TextField(max_length=50, blank=True, null=True)
     status = models.BooleanField('Estado', default=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        if self.temaCapacitacion == None:
+            return "----------"
+        return self.temaCapacitacion
 
 
 class areas(models.Model):
@@ -117,6 +121,10 @@ class empleados(models.Model):
     area = models.ForeignKey(areas, on_delete=models.CASCADE)
     status = models.BooleanField('Estado', default= True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    def __str__(self):
+        if self.nombres == None:
+            return "----------"
+        return self.nombres
 
 
 
@@ -124,6 +132,7 @@ class capacitacion(models.Model):
     empleado = models.ForeignKey(empleados, on_delete=models.CASCADE)
     programas = models.ForeignKey(programasCapacitacion, on_delete=models.CASCADE)
     fechaCapacitacion = models.DateField(auto_now=False, blank=True, null=True)
+    status = models.BooleanField('Estado', default=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
 

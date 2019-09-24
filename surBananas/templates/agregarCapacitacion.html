@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-warning">
-                            <h4 class="card-title m-0 font-weight-bold text-primary">AGREGAR AREA</h4>
+                            <h4 class="card-title m-0 font-weight-bold text-primary"> ASIGNAR CAPACITACIÓN</h4>
                         </div>
                         <div class="card-body">
                             <form method="post" enctype="multipart/form-data">
@@ -20,40 +20,27 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                {{ form.fase }}
+                                                {{ form.empleado }}
                                             </div>
                                         </div>
-                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                {{ form.puesto }}
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                {{ form.actividad }}
-                                            </div>
-                                        </div>
-
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                {{ form.tiposRiesgo }}
+                                                {{ form.programas }}
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 m-0 font-weight-bold text-primary" align="center">
+                                            <div class="form-group">Programar fecha
+                                                {{ form.fechaCapacitacion}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" align="center">
                                             <div class="form-group">
-                                                {{ form.regionAnatomica }}
+                                                <button type="submit" class="btn btn-success pull-right">Guardar</button>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                {{ form.eppUtilizar }}
-                                            </div>
-                                        </div>
 
-                                        <button type="submit" class="btn btn-success pull-right">Guardar</button>
                                         <div class="clearfix"></div>
                                     {% endif %}
                                 </div>
