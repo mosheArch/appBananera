@@ -27,7 +27,8 @@
                             <th>RFC</th>
                             <th>Estado Civil</th>
                             <th>Nacionalidad</th>
-                            <th>Area</th>
+                            <th>Fase</th>
+                            <th>Area o Puesto</th>
                             <th>Telefono</th>
                             <th>Celular</th>
                             <th>Correo electronico</th>
@@ -55,7 +56,8 @@
                                     <td> {{ e.rfc }} </td>
                                     <td> {{ e.estadoCivil }} </td>
                                     <td> {{ e.nacionalidad }} </td>
-                                    <td> {{ e.area }} </td>
+                                    <td> {{ e.area.fase }}</td>
+                                    <td> {{ e.area.puesto }} </td>
                                     <td> {{ e.telefono }} </td>
                                     <td> {{ e.celular }} </td>
                                     <td> {{ e.correoElectronico }} </td>
