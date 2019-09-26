@@ -3,15 +3,23 @@ from .models import capacitacion
 class CapacitacionForm(forms.ModelForm):
     class Meta:
         model = capacitacion
-        fields = ['empleado', 'programas', 'fechaCapacitacion']
+        fields = ['nombreCapacitacion','empleado', 'programas', 'fechaCapacitacion']
 
         labels = {'class': 'bmd-label-floating',
+                  'nombreCapacitacion':'',
                   'empleado': '',
                   'programas': '',
                   'fechaCapacitacion': '',
 
                   }
         widgets = {
+            'nombreCapacitacion': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Nombre de la Capacitacion',
+
+                }
+            ),
             'empleado': forms.Select(
                 attrs={
                     'class': 'form-control',

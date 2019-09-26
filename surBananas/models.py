@@ -129,10 +129,12 @@ class empleados(models.Model):
 
 
 class capacitacion(models.Model):
+    nombreCapacitacion = models.CharField(max_length=200, blank=True, null=True)
     empleado = models.ForeignKey(empleados, on_delete=models.CASCADE)
     programas = models.ForeignKey(programasCapacitacion, on_delete=models.CASCADE)
     fechaCapacitacion = models.DateField(auto_now=False, blank=True, null=True)
     status = models.BooleanField('Estado', default=True)
+    capacitacionTeminada = models.BooleanField('Capacitado', default=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
 

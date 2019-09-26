@@ -9,16 +9,22 @@ from django.urls import reverse_lazy
 
 
 
-class Inicio(TemplateView):
-    model = empleados
-    form_class = EmpleadosForm
-    template_name = 'index.html'
+# class Home(ListView):
+#     model = empleados, areas
+#     template_name = 'index.html'
+#     context_object_name = 'Cempleados'
+#     queryset = empleados.objects.filter(status=True)
 
-class Home(TemplateView):
-    model = empleados
-    form_class = EmpleadosForm
-    template_name = 'index.html'
 
+def Dashboard(request):
+    empleado= empleados.objects.filter(status=True)
+    area = areas.objects.filter(status=True)
+    programa = programasCapacitacion.objects.filter(status=True)
+    capacitar = capacitacion.objects.filter(status=True)
+    capacitacionTerminada = capacitacion.objects.filter(status=False)
+    dashboard = {'empleado': empleado, 'area': area, 'programa': programa, 'capacitar': capacitar, 'capacitacionTerminada': capacitacionTerminada}
+
+    return render(request, 'index.html',dashboard)
 
 class crearCapacitacion(CreateView):
     model= programasCapacitacion
@@ -107,7 +113,7 @@ class EliminarArea(DeleteView):
         return redirect('listaAreas')
 
 '''Modelo para crar Capacitaciones'''
-class AgregarCapacitacion(CreateView):
+class AsignarCapacitacion(CreateView):
     model= capacitacion
     template_name = 'agregarCapacitacion.html'
     form_class = CapacitacionForm

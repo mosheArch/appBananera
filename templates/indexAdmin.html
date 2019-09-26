@@ -96,9 +96,9 @@
             </a>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Menu Capacitaciones:</h6>
-                    <a class="collapse-item" href="{% url 'capacitaciones' %}">Agregar Capacitacion</a>
-                    <a class="collapse-item" href="{% url 'listaCapacitaciones' %}">Listar Capacitaciones</a>
+                    <h6 class="collapse-header">Menu Temas:</h6>
+                    <a class="collapse-item" href="{% url 'capacitaciones' %}">Agregar Temas</a>
+                    <a class="collapse-item" href="{% url 'listaCapacitaciones' %}">Listar Temas</a>
                 </div>
             </div>
         </li>
@@ -347,19 +347,16 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">!Hola¡, {{username}}</span>
-                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                            <span class="mr-2 d-none d-lg-inline text-blue-600 small" style="text-transform: uppercase;">!Bienvenido¡ | {{user}}</span>
+                            <img class="img-profile rounded-circle" src="{% static 'IndexAdmin/img/user.jpg' %}">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="http://localhost:8000/admin">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
+                                Configuración
                             </a>
+
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Activity Log
@@ -382,6 +379,7 @@
             <div class="container-fluid">
                 {% block contenido %}
             {% endblock contenido %}
+
 
             </div>
             <!-- /.container-fluid -->
@@ -429,6 +427,8 @@
 <script src="{% static 'IndexAdmin/js/demo/chart-pie-demo.js' %}"></script>
 <script src="{% static 'IndexAdmin/js/demo/datatables-demo.js' %}"></script>
 <script src="{% static 'IndexAdmin/js/demo/tables.js' %}"></script>
+<script src="{% static 'IndexAdmin/js/search.js' %}"></script>
+<script src="{% static 'IndexAdmin/js/paginacion.css' %}"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 </body>

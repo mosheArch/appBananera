@@ -18,13 +18,19 @@
 
                                     {% else %}
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-6"><br>
                                             <div class="form-group">
+                                                {{ form.nombreCapacitacion }}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 m-0 font-weight-bold text-primary" align="center">
+                                            <div class="form-group">Nombre del Empleado
                                                 {{ form.empleado }}
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
+                                        <div class="col-md-6 m-0 font-weight-bold text-primary" align="center">
+                                            <div class="form-group">Tema
                                                 {{ form.programas }}
                                             </div>
                                         </div>

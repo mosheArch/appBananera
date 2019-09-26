@@ -4,11 +4,11 @@ from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [
-    path('', login_required(views.Home.as_view()), name = 'home'),
+    path('', login_required(views.Dashboard), name = 'home'),
     path('capacitaciones', login_required(views.crearCapacitacion.as_view()), name = 'capacitaciones'),
     path('addEmpleado', login_required(views.CrearEmpleado.as_view()), name = 'addEmpleado'),
     path('agregarArea', login_required(views.CrearArea.as_view()), name = 'crearArea'),
-    path('agregarCapacitacion', login_required(views.AgregarCapacitacion.as_view()), name = 'agregarCapacitacion'),
+    path('agregarCapacitacion', login_required(views.AsignarCapacitacion.as_view()), name = 'agregarCapacitacion'),
     path('listaCapacitaciones', login_required(views.ListaCapacitacion.as_view()), name = 'listaCapacitaciones'),
     path('listaAreas', login_required(views.ListaArea.as_view()), name = 'listaAreas'),
     path('listaEmpleado', login_required(views.ListaEmpleado.as_view()), name = 'lista'),
