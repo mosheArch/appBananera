@@ -140,3 +140,11 @@ class EliminarAsignacion(DeleteView):
         object.status = False
         object.save()
         return redirect('listaAsignacion')
+
+def Card(request, pk):
+
+    capacitar = empleados.objects.get(id=pk)
+
+    card = {'card': capacitar}
+
+    return render(request, 'card.html',card)
