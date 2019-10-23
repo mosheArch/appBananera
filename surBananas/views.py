@@ -90,7 +90,7 @@ class EliminarEmpleado(DeleteView):
     template_name = 'empleados_confirm_delete.html'
 
     def post(self,request, pk, *args, **kwargs):
-        object = empleados.objects.get(id = pk)
+        object = empleados.objects.get(codigoEmpleado = pk)
         object.status = False
         object.save()
         return redirect('lista')
@@ -154,7 +154,7 @@ class EliminarAsignacion(DeleteView):
 
 def Card(request, pk):
 
-    capacitar = empleados.objects.get(id=pk)
+    capacitar = empleados.objects.get(codigoEmpleado=pk)
 
     card = {'card': capacitar}
 

@@ -17,7 +17,11 @@
                                         <h1>{{ error }}</h1>
 
                                     {% else %}
-
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                {{ form.codigoEmpleado}}
+                                            </div>
+                                        </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 {{ form.nombres }}
@@ -34,7 +38,7 @@
                                                 {{ form.apellidoMaterno }}
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3"><br>
                                             <div class="form-group">
                                                 {{ form.edad }}
                                             </div>
@@ -59,24 +63,24 @@
                                                 {{ form.rfc }}
                                             </div>
                                         </div>
-                                        <div class="col-md-4"><br>
+                                        <div class="col-md-3"><br>
                                             <div class="form-group">
                                                 {{ form.estadoCivil }}
                                             </div>
                                         </div>
-                                        <div class="col-md-4"><br>
+                                        <div class="col-md-3"><br>
                                             <div class="form-group">
                                                 {{ form.nacionalidad }}
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4 m-0 font-weight-bold text-primary">Área o Puesto
+                                        <div class="col-md-3 m-0 font-weight-bold text-primary">Área o Puesto
                                             <div class="form-group">
-                                                 {{ form.area }}
-                                             </div>
+                                                {{ form.area }}
+                                            </div>
                                         </div>
 
-                                       {% comment %} <div class="col-md-4">
+                                        {% comment %} <div class="col-md-4">
                                             <div class="form-group">
                                                 {{ form.labor }}
                                             </div>
@@ -131,7 +135,7 @@
                                                 {{form.estado }}
                                             </div>
                                         </div>
-                                         <button type="submit" class="btn btn-success pull-right">Guardar</button>
+                                        <button type="submit" class="btn btn-success pull-right">Guardar</button>
 
                                         <div class="clearfix"></div>
                                     {% endif %}

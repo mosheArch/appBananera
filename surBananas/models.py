@@ -97,6 +97,7 @@ class empleados(models.Model):
         )),
 
     )"""
+    codigoEmpleado = models.IntegerField(unique=True, primary_key=True)
     nombres = models.CharField(max_length=20, blank=True, null=True)
     apellidoPaterno = models.CharField(max_length=20, blank=True, null=True)
     apellidoMaterno = models.CharField(max_length=20, blank=True, null=True)

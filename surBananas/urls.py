@@ -1,7 +1,7 @@
 from surBananas import views
 from django.urls import path
 from django.contrib.auth.decorators import login_required
-from ctypes.test.test_pickling import name
+#from ctypes.test.test_pickling import name
 
 
 urlpatterns = [

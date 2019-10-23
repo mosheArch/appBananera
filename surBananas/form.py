@@ -3,11 +3,11 @@ from .models import empleados
 class EmpleadosForm(forms.ModelForm):
     class Meta:
         model = empleados
-        fields = ['nombres', 'apellidoPaterno', 'apellidoMaterno', 'edad', 'fechaNacimiento', 'numeroSeguroSocial','curp', 'rfc', 'estadoCivil',
+        fields = ['codigoEmpleado','nombres', 'apellidoPaterno', 'apellidoMaterno', 'edad', 'fechaNacimiento', 'numeroSeguroSocial','curp', 'rfc', 'estadoCivil',
                   'nacionalidad', 'area', 'telefono', 'celular', 'correoElectronico', 'direccion', 'ciudad', 'colonia', 'codigoPostal', 'estado', 'imagen']
 
         labels = {'class': 'bmd-label-floating',
-                
+                  'codigoEmpleado': '',
                   'nombres': '',
                   'apellidoPaterno': '',
                   'apellidoMaterno': '',
@@ -31,8 +31,14 @@ class EmpleadosForm(forms.ModelForm):
                   }
 
         widgets = {
-      
 
+            'codigoEmpleado': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Codigo de empleado',
+
+                }
+            ),
             'nombres': forms.TextInput(
                 attrs = {
                     'class': 'form-control',
