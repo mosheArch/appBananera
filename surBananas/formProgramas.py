@@ -35,3 +35,5 @@ class ProgramasCapacitacion(forms.ModelForm):
                 }
             ),
         }
+
+        

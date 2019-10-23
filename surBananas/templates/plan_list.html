@@ -1,0 +1,68 @@
+{% extends 'indexAdmin.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block title %}
+    <title>Surbananas - Capacitaciones</title>
+{% endblock title%}
+{% block contenido %}
+{% if planlist %}
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">LISTA PLAN DE CAPACITACION</h4><br>
+                <input class="form-control border-bottom-primary" id="myInput" type="text" placeholder="Buscar...">
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                  
+                        <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
+
+                            <thead class=" text-primary">
+                            <th>ID</th>
+                            <th>DIRIGIDO</th>
+                            <th>OBJETIVO GENERAL</th>
+                            <th>TEMA</th>
+                            <th>OBJETIVO ESPECIFICO</th>
+                            <th>CONTENIDO</th>
+                            <th>TECNICAS</th>
+                            <th>A QUIEN VA DIRIGIDO</th>
+                            <th>DURACION</th>
+                           
+
+                            </thead>
+                            <tbody id="myTable">
+                            {% for plan in planlist %}
+                                <tr>
+                                    <td>{{plan.id}}</td>
+                                    <td> {{ plan.dirigido }} </td>
+                                    <td> {{ plan.objetivog}} </td>
+                                    <td>{{plan.tema}}</td>
+                                    <td>{{plan.objetivoe}}</td>
+                                    <td>{{plan.contenido}}</td>
+                                    <td>{{plan.dirigidoaquien}}</td>
+                                    <td>{{plan.duracion}}</td>
+                                           
+
+                                    
+                                 
+                                    <td>
+                                         <a href="{% url 'eliminarPlanAnual' plan.id %}" class="btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span class="text">Eliminar</span>
+                                        </a>
+                                    </td>
+                                </tr> 
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                
+            </div>
+
+        </div>
+    </div>
+{%endif%}
+
+    </html>
+{% endblock contenido %}

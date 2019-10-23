@@ -6,36 +6,33 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-warning">
-                            <h4 class="card-title m-0 font-weight-bold text-primary">CREAR TEMA DE CAPACITACIÓN</h4>
+                            <h4 class="card-title m-0 font-weight-bold text-primary">CREAR ACTA ADMINISTRATIVA</h4>
                         </div>
                         <div class="card-body">
-                            <form method="post" enctype="multipart/form-data">
+                            <form action="Gincidencia" method="POST">{% csrf_token %}
                                 <div class="row">
 
-                                    {% csrf_token %}
+                                   
                                     {% if error %}
                                         <h1>{{ error }}</h1>
 
                                     {% else %}
 
-                                        <div class="col-md-6">
+
+                                       <div class="col-md-6">
                                             <div class="form-group">
-                                                {{ form.temaCapacitacion }}
+                                                <input type="text" name="buscar" value="" placeholder="CODIGO TRABAJADOR" class="form-control">
                                             </div>
                                         </div>
-                                         <div class="col-md-6">
+                                       
+                                        <div class="col-md-12" align="center">
                                             <div class="form-group">
-                                                {{ form.tipoCapacitacion }}
+                                                <button type="submit"
+                                                 class="btn btn-block btn-success pull-right">GENERAR ACTA</button>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                {{ form.descripcionCapacitacion }}
-                                            </div>
-                                        </div>
 
-                                        <button type="submit" class="btn btn-block btn-success pull-right">Guardar</button>
                                         <div class="clearfix"></div>
                                     {% endif %}
                                 </div>

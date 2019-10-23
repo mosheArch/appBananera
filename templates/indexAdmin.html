@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>MigueAleman</title>
 
     <!-- Custom fonts for this template-->
     <link href="{% static 'IndexAdmin/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -37,9 +37,9 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink">Sur</i>
+               {#  <i class="fas fa-laugh-wink">Sur</i> #}
             </div>
-            <div class="sidebar-brand-text mx-3">Bananera <sup>V.1.0</sup></div>
+            <div class="sidebar-brand-text mx-3">E.M.ALEMAN<sup>V.1.0</sup></div>
         </a>
 
         <!-- Divider -->
@@ -61,6 +61,22 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse4">
+                <i class="fas fa-city"></i>
+                    <span>Plan Anual</span>
+            </a>
+            <div id="collapse9" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Menú de Areas :</h6>
+                    <a class="collapse-item" href="{% url 'crearplan' %}">Agregar Plan Anual</a>
+                    <a class="collapse-item" href="{% url 'listarplan'%}">Lista Planes </a>
+                    
+                </div>
+            </div>
+        </li>
+        
+        
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
                 <i class="fas fa-city"></i>
@@ -74,6 +90,7 @@
                 </div>
             </div>
         </li>
+        
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -113,6 +130,20 @@
                     <h6 class="collapse-header">Menú de Asignación :</h6>
                     <a class="collapse-item" href="{% url 'agregarCapacitacion' %}">Asignar Capacitacion</a>
                     <a class="collapse-item" href="{% url 'listaAsignacion' %}">Listar Capacitaciones</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#acta" aria-expanded="true" aria-controls="collapse3">
+                <i class="fas fa-calendar-alt"></i>
+                    <span>Crear Acta Admon.</span>
+            </a>
+            <div id="acta" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Acta Administrativa :</h6>
+                    <a class="collapse-item" href="{% url 'BuscarEmpleadoIncidencia' %}">Buscar Empleado</a>
+                    
                 </div>
             </div>
         </li>

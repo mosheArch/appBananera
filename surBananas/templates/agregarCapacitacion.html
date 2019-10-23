@@ -35,14 +35,17 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6 m-0 font-weight-bold text-primary" align="center">
+
+                                             <div class="col-md-6 m-0 font-weight-bold text-primary" align="center">
                                             <div class="form-group">Programar fecha
                                                 {{ form.fechaCapacitacion}}
                                             </div>
                                         </div>
+  </div>
+</div>
                                         <div class="col-md-12" align="center">
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-success pull-right">Guardar</button>
+                                                <button type="submit" class="btn btn-block btn-success pull-right">Guardar</button>
                                             </div>
                                         </div>
 
@@ -59,4 +62,13 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+  $(function () {
+    $("#datetimepicker1").datetimepicker({
+      format: 'DD/MM/YYYY HH:mm',
+    });
+  });
+</script>
 {%endblock contenido %}

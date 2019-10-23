@@ -7,6 +7,7 @@ class EmpleadosForm(forms.ModelForm):
                   'nacionalidad', 'area', 'telefono', 'celular', 'correoElectronico', 'direccion', 'ciudad', 'colonia', 'codigoPostal', 'estado', 'imagen']
 
         labels = {'class': 'bmd-label-floating',
+                
                   'nombres': '',
                   'apellidoPaterno': '',
                   'apellidoMaterno': '',
@@ -30,6 +31,8 @@ class EmpleadosForm(forms.ModelForm):
                   }
 
         widgets = {
+      
+
             'nombres': forms.TextInput(
                 attrs = {
                     'class': 'form-control',

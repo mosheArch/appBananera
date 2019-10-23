@@ -139,6 +139,21 @@ class capacitacion(models.Model):
 
 
 
+class planAnual (models.Model):
+    objetivoG = models.CharField(max_length=500, blank=True, null=True)
+    dirigido = models.CharField(max_length=500, blank=True, null=True)
+    tema = models.CharField(max_length=500, blank=True, null=True)
+    objetivoe = models.CharField(max_length=500, blank=True, null=True)
+    contenido = models.CharField(max_length=500, blank=True, null=True)
+    tecnicas = models.CharField(max_length=500, blank=True, null=True)
+    dirigidoaquien = models.CharField(max_length=500, blank=True, null=True)
+    duracion = models.CharField(max_length=500, blank=True, null=True)
+    status = models.BooleanField('Estado', default=True)
+    create_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    
+
+
+
 
 
 

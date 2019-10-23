@@ -1,0 +1,34 @@
+{% extends 'indexAdmin.html' %}
+{% block contenido %}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title ">Eliminar Plan Anual</h4>
+                        </div>
+                        <div class="card-body" align="center">
+                            <form method="post">
+
+                                {% csrf_token %}
+                                <div class="alert alert-danger" align="center">
+                                    <span><b> <h3>Alerta</h3>  </b> <h4>¿Esta seguro que desea eliminar este registro para {{ object.tema }}?</h4></span>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                            </span>
+                                    <span class="text">Eliminar</span>
+                                </button>
+                                                       </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}
