@@ -188,8 +188,8 @@ class BuscarEmpleadoIncidencia (TemplateView):
 class Gincidencia(ListView):
     def post(self, request, *args, **kwargs):
         buscar = request.POST['buscar']
-        trabajador = empleados.objects.get(nombres=buscar)
-        emp = str(trabajador.nombres)
+        codigoT = empleados.objects.get(codigoEmpleado=buscar)
+        emp = str(codigoT.nombres)
         pdf = FPDF(format='letter')
         pdf.add_page()
         pdf.set_font("Arial", size=12)
