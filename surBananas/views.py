@@ -189,15 +189,19 @@ class Gincidencia(ListView):
     def post(self, request, *args, **kwargs):
         buscar = request.POST['buscar']
         codigoT = empleados.objects.get(codigoEmpleado=buscar)
-        emp = str(codigoT.nombres)
+        nombre_jefe = request.POST['jefe']
+        name_emp = str(codigoT.nombres)
+        app_emp = str(codigoT.apellidoPaterno)
+        apm_emp = str(codigoT.apellidoMaterno)
+        nombreEmpleado = name_emp+' '+app_emp+' '+apm_emp
         pdf = FPDF(format='letter')
         pdf.add_page()
         pdf.set_font("Arial", size=12)
         pdf.cell(8,85,'FECHA:'+ fecha_actual)
         pdf.set_xy(150,48)
         pdf.cell(10,10,'ACTA ADMINISTRATIVA')
-        text1= 'Por medio del presente escrito se levanta la acta administrativa al C.'+emp+' '+'ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
-        text2='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia'+' '+emp+' '+'del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
+        text1= 'Por medio del presente escrito se levanta la acta administrativa al C.'+nombreEmpleado+'ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
+        text2='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia'+nombreEmpleado+'del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
         text3= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
         parrafo = text1+text2+text3
         pdf.set_xy(8,70)
@@ -205,13 +209,13 @@ class Gincidencia(ListView):
         pdf.cell(200,80,'ATENTAMENTE',align="C")
         pdf.set_font('Times', 'U')
         pdf.set_xy(8,170)
-        pdf.cell(10,80,'ELIX YORDI HERNANDEZ VAZQUEZ')
+        pdf.cell(10,80,nombre_jefe)
         pdf.set_font('Times')
         pdf.set_xy(8,170)
         pdf.cell(4,89,'NOMBRE Y FIRMA DEL JEFE DE AREA')
         pdf.set_font('Times', 'U')
-        pdf.set_xy(150,207)
-        pdf.cell(8,5,emp)
+        pdf.set_xy(130,207)
+        pdf.cell(8,5,nombreEmpleado)
         pdf.set_font('Times')
         pdf.set_xy(147,212)
         pdf.cell(8,5,'PERSONA SANCIONADA')
@@ -228,7 +232,7 @@ class Gincidencia(ListView):
         pdf.set_font('Times')
         pdf.cell(8,5,'COMISION DE SEGURIDAD E HIGIENE')
 
-        pdf.output('Somefilename.pdf')
+        
         response = HttpResponse(pdf.output(dest='S').encode('latin-1'))
         response['Content-Type'] = 'application/pdf'
         return response

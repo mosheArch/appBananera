@@ -35,29 +35,12 @@
                                     <td> {{ c.fechaCapacitacion }} </td>
                                     <td> {{ c.created_at }} </td>
                                     <td>
-                                        <a href="{% url 'editarAsignacion' c.id %}" class="btn btn-primary btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                 <i class="fas fa-edit"></i>
-                                            </span>
-                                            <span class="text">Editar</span>
-                                        </a>
+                                       
+                                        <a href="{% url 'editarAsignacion' c.id %}" class="badge badge-warning">EDITAR</a>
+                                        <a href="{% url 'eliminarAsignacion' c.id %}" class="badge badge-danger">ELIMINAR</a>
                                     </td>
-                                    <td>
-                                        <a href="{% url 'eliminarAsignacion' c.id %}" class="btn btn-danger btn-icon-split">
-                                            <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span class="text">Eliminar</span>
-                                        </a>
-                                    </td>
-                                 <td>
-                                    <a href="{% url 'credencial' c.id %}" class="btn btn-danger btn-icon-split">
-                                            <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span class="text">Credencial</span>
-                                        </a>
-                                </td>
+                                   
+                               
                                 </tr>
                             {% endfor %}
                             </tbody>

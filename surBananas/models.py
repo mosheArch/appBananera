@@ -14,8 +14,8 @@ class programasCapacitacion(models.Model):
 
 class areas(models.Model):
     choice_riesgo ={('', 'Tipos de riesgo'),('Físico','Físico'),('Quimico','Quimico'), ('Físico y Quimico','Físico y Quimico')}
-    choice_fase ={('', 'Fases'),('Unidad de Empaque','Unidad de Empaque'),('Unidad de Producción','Unidad de Producción')}
-    choice_puesto= (('', 'Áreas y Puestos'),
+    choice_fase ={('', 'Areas'),('Area 1','Area 1'),('Area 2','Area 2'),('Area 3','Area 3'),('Area 4','Area 4'),('Area 5','Area 5'),('Unidad de Empaque','Unidad de Empaque'),('Unidad de Producción','Unidad de Producción')}
+    choice_puesto= (('', 'Labor'),
                    ('1.- Unidad de Empaque', (
                        ('Recepción de Frutas', 'Recepción de Frutas'),
                        ('Desflore', 'Desflore'),
@@ -151,6 +151,16 @@ class planAnual (models.Model):
     duracion = models.CharField(max_length=500, blank=True, null=True)
     status = models.BooleanField('Estado', default=True)
     create_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+
+class incidencias (models.Model):
+    codigoEmpleado = models.ForeignKey(empleados, on_delete=models.CASCADE)
+    totalfaltas = models.IntegerField(max_length=10, blank=True, null=True)
+
+
+class template_incidencias(models.Model):
+    texto = models.CharField(max_length=2000,blank=True, null=True)
+    tipo_plantilla = models.CharField(max_length=100, blank=True, null=True)
     
 
 
