@@ -155,7 +155,7 @@ class planAnual (models.Model):
 
 class incidencias (models.Model):
     codigoEmpleado = models.ForeignKey(empleados, on_delete=models.CASCADE)
-    totalfaltas = models.IntegerField(max_length=10, blank=True, null=True)
+    totalfaltas = models.IntegerField(blank=True, null=True)
 
 
 class template_incidencias(models.Model):
