@@ -11,6 +11,7 @@ urlpatterns = [
     path('', login_required(Dashboard), name='index'),
     path('accounts/login/', Login.as_view(), name = 'LogIn'),
     path('logout/', login_required(salirUsuario), name = 'salir'),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 admin.site.site_header = 'Surbananas Administrador'

@@ -13,11 +13,19 @@
                 <input class="form-control border-bottom-primary" id="myInput" type="text" placeholder="Buscar...">
             </div>
 
-            
+                <style>
+                div.ex1 {
+           
+            height: 200px;
+            width: 200px;
+            overflow-y: scroll;
+}
+                              
+                </style>
             <div class="card-body">
                 <div class="table-responsive">
                   
-                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <table id="example" class="table table-striped table-bordered">
 
                             <thead class=" text-primary">
                             <th>ID</th>
@@ -29,6 +37,7 @@
                             <th>TECNICAS</th>
                             <th>A QUIEN VA DIRIGIDO</th>
                             <th>DURACION</th>
+                            <th>ACCIONES</th>
                            
 
                             </thead>
@@ -37,24 +46,23 @@
                             {% for plan in planlist %}
                                 <tr>
                                     <td>{{plan.id}}</td>
-                                    <td> {{ plan.dirigido }} </td>
-                                    <td> {{ plan.objetivog}} </td>
-                                    <td>{{plan.tema}}</td>
-                                    <td>{{plan.objetivoe}}</td>
-                                    <td>{{plan.contenido}}</td>
-                                    <td>{{plan.dirigidoaquien}}</td>
-                                    <td>{{plan.duracion}}</td>
+                                    <td><div class="ex1">{{ plan.dirigido|safe}}</div></td>
+                                    <td><div class="ex1">{{ plan.objetivoG|safe}} </div></td>
+                                    <td><div class="ex1">{{plan.tema|safe}}</div></td>
+                                    <td><div class="ex1">{{plan.objetivoe|safe}}</div></td>
+                                    <td><div class="ex1">{{plan.contenido|safe}}</div></td>
+                                    <td><div class="ex1">{{plan.tecnicas|safe}}</div></td>
+                                    <td><div class="ex1">{{plan.dirigidoaquien|safe}}</div></td>
+                                    <td><div class="ex1">{{plan.duracion|safe}}</div></td>
                                            
 
                                     
                                  
                                     <td>
-                                         <a href="{% url 'eliminarPlanAnual' plan.id %}" class="btn btn-danger btn-icon-split">
-                                            <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span class="text">Eliminar</span>
-                                        </a>
+                                        
+                                        <a href="{% url 'eliminarPlanAnual' plan.id %}" class="badge badge-danger">ELIMINAR</a>
+                                        <a href="{% url 'editarPlanAnual' plan.id %}" class="badge badge-warning">EDITAR</a>
+                                        <a href="{% url 'PrintPlanAnual' plan.id %}" class="badge badge-success">IMPRIMIR</a>
                                     </td>
                                 </tr> 
                             {% endfor %}

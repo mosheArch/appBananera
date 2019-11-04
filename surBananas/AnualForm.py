@@ -1,5 +1,6 @@
 from django import forms
 from .models import planAnual
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 class Anual(forms.ModelForm):
     class Meta:
         model = planAnual
@@ -17,68 +18,55 @@ class Anual(forms.ModelForm):
                   
                 
                   }
+       
         widgets = {
-            'objetivoG': forms.Textarea(
+                'objetivoG': SummernoteWidget(
+                 attrs={
+                    
+                 }
+                ),
+
+
+            'dirigido':SummernoteWidget(
+                 attrs={
+                     
+                 }
+                ),
+            'tema':SummernoteWidget(),
+            # 'tema': forms.Textarea(
+            #     attrs={
+            #     'foo': SummernoteWidget(),
+	        #     'bar': SummernoteInplaceWidget(),
+            #     'class':'form-control',
+            #     'placeholder':'TEMA(S)',
+            #     'rows':'3',
+
+            #     }
+            # ),
+            'objetivoe': SummernoteWidget(),
+            'contenido':SummernoteWidget(
                 attrs={
-                    'class': 'form-control',
-                    'placeholder': 'OBJETIVO GENERAL',
-                    'rows':'3',
+                # 'class':'form-control',
+                # 'placeholder':'CONTENIDO',
+                #  'rows':'3',
 
                 }
             ),
-            'dirigido': forms.Textarea(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'DIRIGIDO',
-                    'rows':'3',
-
-                }
-            ),
-            'tema': forms.Textarea(
-                attrs={
-                'class':'form-control',
-                'placeholder':'TEMA(S)',
-                'rows':'3',
-
-                }
-            ),
-            'objetivoe': forms.Textarea(
-                attrs={
-                'class':'form-control',
-                'placeholder':'OBJETIVO ESPECIFICO',
-                'rows':'3',
+            'tecnicas': SummernoteWidget(),
 
 
+            'dirigidoaquien':SummernoteWidget(
+                attrs={
+                # 'class':'form-control',
+                # 'placeholder':'A QUIEN VA DIRIGIDO',
+                #  'rows':'3',
                 }
             ),
-            'contenido': forms.Textarea(
+            'duracion':SummernoteWidget(
                 attrs={
-                'class':'form-control',
-                'placeholder':'CONTENIDO',
-                 'rows':'3',
-
-                }
-            ),
-            'tecnicas': forms.Textarea(
-                attrs={
-                'class':'form-control',
-                'placeholder':'TECNICAS',
-                 'rows':'3',
-
-                }
-            ),
-            'dirigidoaquien':forms.Textarea(
-                attrs={
-                'class':'form-control',
-                'placeholder':'A QUIEN VA DIRIGIDO',
-                 'rows':'3',
-                }
-            ),
-            'duracion':forms.Textarea(
-                attrs={
-                'class': 'form-control',
-                'placeholder':'DURACION',
-                 'rows':'3',
+                # 'class': 'form-control',
+                # 'placeholder':'DURACION',
+                #  'rows':'3',
                 }
             ),
 
