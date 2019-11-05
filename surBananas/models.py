@@ -1,5 +1,4 @@
 from django.db import models
-
 class programasCapacitacion(models.Model):
     temaCapacitacion = models.TextField(max_length=50, blank=True, null=True)
     descripcionCapacitacion = models.TextField(max_length=100, blank=True, null=True)
@@ -162,7 +161,6 @@ class template_incidencias(models.Model):
     texto = models.CharField(max_length=2000,blank=True, null=True)
     tipo_plantilla = models.CharField(max_length=100, blank=True, null=True)
     
-
 
 
 
