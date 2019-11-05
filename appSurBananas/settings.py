@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'surBananas.apps.SurbananasConfig',
     'usuarios.apps',
 ]
+INSTALLED_APPS += ('django_summernote', )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -136,3 +137,31 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode, default
+    'iframe': True,
+
+    # Or, you can set it as False to use SummernoteInplaceWidget by default - no iframe mode
+    # In this case, you have to load Bootstrap/jQuery stuff by manually.
+    # Use this when you're already using Bootstraip/jQuery based themes.
+    'iframe': False,
+
+    # You can put custom Summernote settings
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '100%',
+        'height': '300',
+        'toolbar': ['bold', 'italic', 'underline','ul','ol','paragraph'],
+        # Use proper language setting automatically (default)
+        'lang': None,
+
+        # Or, set editor language/locale forcely
+        'lang': 'ko-KR',
+        
+        
+       
+    }
+}
