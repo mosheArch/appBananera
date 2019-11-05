@@ -102,96 +102,18 @@ width: 700px;
      </tr>
    </thead>
    <tbody>
+      {% for plan in planlist %}
      <tr>
-       <td class="tdbreak tema">{{card.tema|safe}}</td>
-       <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-       <td class="tdbreak tema">{{card.contenido|safe}}</td>
-       <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-       <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-       <td class="tdbreak tema">{{card.duracion|safe}}</td>
+       <td class="tdbreak tema">{{plan.tema|safe}}</td>
+       <td class="tdbreak tema">{{plan.objetivoe|safe}}</td>
+       <td class="tdbreak tema">{{plan.contenido|safe}}</td>
+       <td class="tdbreak tema">{{plan.tecnicas|safe}}</td>
+       <td class="tdbreak tema">{{plan.dirigidoaquien|safe}}</td>
+       <td class="tdbreak tema">{{plan.duracion|safe}}</td>
        
       
      </tr>
-     <tr>
-        <td class="tdbreak tema">{{card.tema|safe}}</td>
-        <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-        <td class="tdbreak tema">{{card.contenido|safe}}</td>
-        <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-        <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-        <td class="tdbreak tema">{{card.duracion|safe}}</td>
-        
-       
-      </tr>
-      <tr>
-          <td class="tdbreak tema">{{card.tema|safe}}</td>
-          <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-          <td class="tdbreak tema">{{card.contenido|safe}}</td>
-          <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-          <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-          <td class="tdbreak tema">{{card.duracion|safe}}</td>
-          
-         
-        </tr>
-        <tr>
-            <td class="tdbreak tema">{{card.tema|safe}}</td>
-            <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-            <td class="tdbreak tema">{{card.contenido|safe}}</td>
-            <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-            <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-            <td class="tdbreak tema">{{card.duracion|safe}}</td>
-            
-           
-          </tr>
-          <tr>
-              <td class="tdbreak tema">{{card.tema|safe}}</td>
-              <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-              <td class="tdbreak tema">{{card.contenido|safe}}</td>
-              <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-              <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-              <td class="tdbreak tema">{{card.duracion|safe}}</td>
-              
-             
-            </tr>
-            <tr>
-                <td class="tdbreak tema">{{card.tema|safe}}</td>
-                <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-                <td class="tdbreak tema">{{card.contenido|safe}}</td>
-                <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-                <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-                <td class="tdbreak tema">{{card.duracion|safe}}</td>
-                
-               
-              </tr>
-              <tr>
-                  <td class="tdbreak tema">{{card.tema|safe}}</td>
-                  <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-                  <td class="tdbreak tema">{{card.contenido|safe}}</td>
-                  <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-                  <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-                  <td class="tdbreak tema">{{card.duracion|safe}}</td>
-                  
-                 
-                </tr>
-                <tr>
-                    <td class="tdbreak tema">{{card.tema|safe}}</td>
-                    <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-                    <td class="tdbreak tema">{{card.contenido|safe}}</td>
-                    <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-                    <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-                    <td class="tdbreak tema">{{card.duracion|safe}}</td>
-                    
-                   
-                  </tr>
-                  <tr>
-                      <td class="tdbreak tema">{{card.tema|safe}}</td>
-                      <td class="tdbreak tema">{{card.objetivoe|safe}}</td>
-                      <td class="tdbreak tema">{{card.contenido|safe}}</td>
-                      <td class="tdbreak tema">{{card.tecnicas|safe}}</td>
-                      <td class="tdbreak tema">{{card.dirigidoaquien|safe}}</td>
-                      <td class="tdbreak tema">{{card.duracion|safe}}</td>
-                      
-                     
-                    </tr>
+     {% endfor %}
       
    </tbody>
    <tfoot>

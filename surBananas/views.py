@@ -193,7 +193,7 @@ class BuscarEmpleadoIncidencia (TemplateView):
 class Gincidencia(ListView):
     def post(self, request, *args, **kwargs):
         buscar = request.POST['buscar']
-        faltaa = request.POST['falta']
+        faltaa = int (request.POST['falta'])
         codigoT = empleados.objects.get(codigoEmpleado=buscar)
         nombre_jefe = request.POST['jefe']
         name_emp = str(codigoT.nombres)
@@ -263,8 +263,19 @@ class Gincidencia(ListView):
         response = HttpResponse(pdf.output(dest='S').encode('latin-1'))
         response['Content-Type'] = 'application/pdf'
         return response
-class PrintPlanAnual(View):
-    def get(self,request, pk):
-     contenido = planAnual.objects.get(id=pk)
-     card = {'card': contenido}
-     return render(request, 'acta.html',card)
+# class PrintPlanAnual(View):
+#     def get(request):
+#         model =planAnual
+#         context_object_name =  'planlist'
+   
+#         card = {'card': context_object_name}
+#         return render(request, 'acta.html',card)
+#     model = planAnual
+#     template_name= 'acta.html'
+#     context_object_name =  'planlist'
+
+
+class PrintPlanAnual(ListView):
+    model = planAnual
+    template_name= 'acta.html'
+    context_object_name =  'planlist'
