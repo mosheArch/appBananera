@@ -117,7 +117,7 @@ class empleados(models.Model):
     colonia = models.CharField(max_length=200, blank=True, null=True)
     codigoPostal = models.IntegerField(blank=True, null=True)
     estado = models.CharField(max_length=20, blank=True, null=True)
-    imagen = models.FileField(upload_to="fotos/", blank=True, null=True)
+    imagen = models.ImageField(upload_to="fotos/", blank=True, null=True)
     area = models.ForeignKey(areas, on_delete=models.CASCADE)
     status = models.BooleanField('Estado', default= True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
