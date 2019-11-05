@@ -193,7 +193,7 @@ class BuscarEmpleadoIncidencia (TemplateView):
 class Gincidencia(ListView):
     def post(self, request, *args, **kwargs):
         buscar = request.POST['buscar']
-        faltaa = request.POST['falta']
+        faltaa = int(request.POST['falta'])
         codigoT = empleados.objects.get(codigoEmpleado=buscar)
         nombre_jefe = request.POST['jefe']
         name_emp = str(codigoT.nombres)
@@ -208,23 +208,23 @@ class Gincidencia(ListView):
         pdf.cell(10,10,'ACTA ADMINISTRATIVA')
         if faltaa==1:
              global a,b,c,parrafo
-             a='Por medio del presente escrito se levanta la acta administrativa al C.'+nombreEmpleado+'ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
-             b= 'el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia'+nombreEmpleado+'del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
+             a='Por medio del presente escrito se levanta la acta administrativa al C. ' +nombreEmpleado+ ' ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
+             b= 'el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia ' +nombreEmpleado+ ' del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
              c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
             
              parrafo = a+b+c
             
         elif faltaa==2:
             a= 'Por medio del presente escrito se levanta la acta administrativa al C. hghhghghg ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo'
-            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia'+nombreEmpleado+'del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
+            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia '+ nombreEmpleado+ ' del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
             c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
             
             parrafo = a+b+c
            
 
         elif faltaa==3:
-            a= 'Por medio del presente escrito se levanta la acta administrativa al C.'+nombreEmpleado+'ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
-            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia'+nombreEmpleado+'del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
+            a= 'Por medio del presente escrito se levanta la acta administrativa al C. '+ nombreEmpleado +' ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
+            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia '+ nombreEmpleado +' del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
             c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
            
             parrafo = a+b+c
@@ -263,6 +263,7 @@ class Gincidencia(ListView):
         response = HttpResponse(pdf.output(dest='S').encode('latin-1'))
         response['Content-Type'] = 'application/pdf'
         return response
+
 class PrintPlanAnual(View):
     def get(self,request, pk):
      contenido = planAnual.objects.get(id=pk)

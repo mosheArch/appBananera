@@ -2,7 +2,7 @@ from surBananas import views
 from django.urls import path
 from .credencial import HelloPDFView
 from django.contrib.auth.decorators import login_required
-#from ctypes.test.test_pickling import name
+
 
 
 urlpatterns = [
@@ -38,4 +38,4 @@ urlpatterns = [
 
     #path('index', views.Inicio.as_view(), name= 'IndexAdmin')
 
-]
+] 
