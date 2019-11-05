@@ -1,5 +1,6 @@
 from surBananas import views
 from django.urls import path
+from .credencial import HelloPDFView
 from django.contrib.auth.decorators import login_required
 #from ctypes.test.test_pickling import name
 
@@ -30,6 +31,8 @@ urlpatterns = [
     path('eliminarAreas/<int:pk>', views.EliminarArea.as_view(), name = 'eliminarAreas'),
     path('eliminarAsignacion/<int:pk>', views.EliminarAsignacion.as_view(), name = 'eliminarAsignacion'),
     path('eliminarPlanAnual/<int:pk>', views.EliminarPlanList.as_view(), name = 'eliminarPlanAnual'),
+    #path('pdf/<int:pk>', login_required(HelloPDFView.as_view()), name = 'pdf'),
+   
     # path('incidencia/print/<int:pk>', views.print_incidencia, name='categoria_print_one'),  
 
 
