@@ -5,20 +5,51 @@
 <div class="row justify-content-center">
     <div class="col-6 col-sm-6 col-md-6 col-lg-6 " style="padding-top: 1em; " >
         <div class="card "  >
-  <img class="card-img-top"  src="{% static 'IndexAdmin/img/b.png'  %}" alt="Bologna" style="padding: 2em">
+  <img class="card-img-top "  src="{% static 'IndexAdmin/img/b.png'  %}" alt="Bologna" style="padding: 2em">
   <div class="card-body text-center" >
-    <img class="avatar rounded-circle" style="margin-top: -8rem; margin-bottom: 1rem; max-width: 9rem;" src="{{card.imagen.url}}" alt="card.imagen.name">
-    <h4 class="card-title">{{ card.nombres }} {{ card.apellidoPaterno }} {{ card.apellidoMaterno }}</h4>
-    <h5 class="card-subtitle mb-2 text-muted">Seguro Social: {{card.numeroSeguroSocial}}</h5>
-    <h5 class="card-subtitle mb-2 text-muted">Area: {{card.area}}</h5>
-    <h5 class="card-subtitle mb-2 text-muted">Empleado No.  {{card.codigoEmpleado}}</h5>
+    <img class="avatar img-thumbnail" style="margin-top: -8rem; margin-bottom: 1rem; max-width: 9rem;" src="{{card.imagen.url}}" alt="card.imagen.name">
+    <h4 class="card-title" style= "color:green;">{{ card.nombres }} {{ card.apellidoPaterno }} {{ card.apellidoMaterno }}</h4>
+    <h5 class="card-subtitle mb-2 text" style= "color:green;">Empleado No.  {{card.codigoEmpleado}}</h5>
+    <h5 class="card-subtitle mb-2 text" style= "color:green;">Fase: {{card.area.fase}}</h5>
+    <h5 class="card-subtitle mb-2 text" style= "color:green;">Area: {{card.area}}</h5>
+    
+    
+    <p><strong style = "color:red;">IDENTIFICACIÓN PERSONAL SIN VALOR OFICIAL</strong></p>
 
+  </div>
+</div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-6 col-sm-6 col-md-6 col-lg-6 " style="padding-top: 1em; " >
+        <div class="card ">
+  <div class="card-body " >
+    <ul>
+    <p><strong>Indicaciones de preveención de incidencias</strong></p>
+  <li style="font-size:60%; color:green;" >Respetar y cumplir las señalizaciones de prohibición de no generar flama</li>
+  <li style="font-size:60%; color:green;">No fumar en las áreas</li>
+  <li style="font-size:60%; color:green;">Reportar a los responsables de área cuando se presenten detalles con las instalaciones electrincas o se 
+  identifique un incidente de incendio </li>
+  <li style="font-size:60%; color:green;">No colocar papelería cerca de toma corrientes o centros de carga</li>
+  <li style="font-size:60%; color:green;">No mojar los toma corrientes o contactos</li>
+  <li style="font-size:60%; color:green;">Obedecer las instrucciones de los encargados si se llega a presentar un evento que pueda poner en riesgo su 
+  integridad y requiera la evaluación del área</li>
+  <li style="font-size:60%; color:green;">Mantener orden y limpieza en las áreas</li><br>
+  <p><strong>Políticas internas del centro de trabajo</strong></p>
+  <li style="font-size:60%; color:green;">Se prohibe la utilización de mujeres en estado de gestación o en lactancia en labores peligrosas que puedan poner en riesgo su integridad física, 
+  la vida y salud del producto de la concepción o lactancia</li>
+  <li style="font-size:60%; color:green;">Prohibido la utilización de mujeres en estado de gestación y durante las semanas posteriores la parto, realicen carga manual de materiales</li>
+  <li style="font-size:60%; color:green;">Prohibido la utilización de menores de edad en labores peligrosas e insalubres que puedan poner en riesgo su salud fisica y mental</li>
+  <li style="font-size:60%; color:green;">Esta estrictamente prohibido el maltrato laboral (físico, verbal o acoso) dentro de las medias de preveención adoptadas para conbatir la violencia laboral</li>
+</ul>
+<img class="card-img-top "  src="{% static 'IndexAdmin/img/bananera.png'  %}" alt="Bologna" style="width:450px;height:200px;" >
   </div>
 </div>
     </div>
 </div>
 </div>
      <a href="javascript:imprSelec('muestra')" class="btn btn-success openBtn"><i class="fas fa-print"> Imprimir</i></a>
-    <a href="{% url 'listaAsignacion' %}" class="btn btn-outline-info">Descargar</a>
+    <a href="{% url 'lista' %}" class="btn btn-outline-info">Regresar</a>
 
 {% endblock contenido %}
