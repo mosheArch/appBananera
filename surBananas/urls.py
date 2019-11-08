@@ -30,6 +30,7 @@ urlpatterns = [
     path('eliminarCapacitaciones/<int:pk>', views.EliminarCapacitaciones.as_view(), name = 'eliminarCapacitaciones'),
     path('eliminarAreas/<int:pk>', views.EliminarArea.as_view(), name = 'eliminarAreas'),
     path('eliminarAsignacion/<int:pk>', views.EliminarAsignacion.as_view(), name = 'eliminarAsignacion'),
+    path('terminadas/', views.Terminadas.as_view(), name = 'terminadas'),
     path('eliminarPlanAnual/<int:pk>', views.EliminarPlanList.as_view(), name = 'eliminarPlanAnual'),
     #path('pdf/<int:pk>', login_required(HelloPDFView.as_view()), name = 'pdf'),
    

@@ -1,6 +1,7 @@
 {% extends 'credencial.html' %}
 {% load static %}
 {% block contenido %}
+
 <div class="container" id="muestra"  >
 <div class="row justify-content-center">
     <div class="col-6 col-sm-6 col-md-6 col-lg-6 " style="padding-top: 1em; " >
@@ -20,6 +21,7 @@
 </div>
     </div>
 </div>
+
 
 <div class="row justify-content-center">
     <div class="col-6 col-sm-6 col-md-6 col-lg-6 " style="padding-top: 1em; " >
@@ -49,6 +51,7 @@
     </div>
 </div>
 </div>
+
      <a href="javascript:imprSelec('muestra')" class="btn btn-success openBtn"><i class="fas fa-print"> Imprimir</i></a>
     <a href="{% url 'lista' %}" class="btn btn-outline-info">Regresar</a>
 

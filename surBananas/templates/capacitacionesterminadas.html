@@ -1,0 +1,52 @@
+{% extends 'indexAdmin.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block title %}
+    <title>Surbananas - Reservar</title>
+{% endblock title%}
+{% block contenido %}
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">PROGRMAR FECHA DE CAPACITACIÓN</h6><br>
+<!--                <input class="form-control border-bottom-primary" id="myInput" type="text" placeholder="Buscar...">-->
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    {% if terminadas %}
+                        <table id="dataTable" class="table table-striped table-bordered nowrap" style="width:100%">
+
+                            <thead class=" text-primary">
+                            <th>CodigoEmpleado</th>
+                            <th>Empleado</th>
+                            <th>Programas</th>
+                            <th>Fecha de Capacitación</th>
+                            
+
+                            </thead>
+                            <tbody id="demo-info">
+                            {% for c in terminadas %}
+                                <tr>
+                                    <td> {{ c.empleado.codigoEmpleado }} </td>
+                                    <td> {{ c.empleado}} {{ c.empleado.apellidoPaterno }} {{ c.empleado.apellidoMaterno }}</td>
+                                    <td> {{ c.programas}} </td>
+                                    <td> {{ c.fechaCapacitacion }} </td>
+                                    
+                                   
+                               
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h1>NOT FOUND</h1>
+                        </div>
+                    {% endif %}
+            </div>
+              </div>
+    </div>
+
+
+    </html>
+{% endblock contenido %}
