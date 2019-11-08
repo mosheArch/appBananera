@@ -135,6 +135,12 @@ class ListaAsignacion(ListView):
     context_object_name = 'listaCapacitacion'
     queryset = capacitacion.objects.filter(status=True)
 
+class Terminadas(ListView):
+    model = capacitacion
+    template_name = 'capacitacionesterminadas.html'
+    context_object_name = 'terminadas'
+    queryset = capacitacion.objects.filter(status=False)
+
 class ActualizarAsignacion(UpdateView):
     model = capacitacion
     template_name = 'agregarCapacitacion.html'
