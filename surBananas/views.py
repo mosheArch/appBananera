@@ -166,6 +166,15 @@ def Card(request, pk):
     return render(request, 'card.html',card)
 
 
+def ReporteEmpleado(request, pk):
+
+    reporte = empleados.objects.get(codigoEmpleado=pk)
+
+    card = {'empleado': reporte}
+
+    return render(request, 'reporteEmpleado.html',card)
+
+
 
 class CrearPlanAnual(CreateView):
     model = planAnual
