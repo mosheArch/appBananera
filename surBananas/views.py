@@ -5,8 +5,9 @@ from .form import EmpleadosForm
 from .formProgramas import ProgramasCapacitacion
 from .AreasForm import AreasForm
 from .AnualForm import Anual
+from .BuscarEmpleadoIncidencias import BuscarEmpleadoIncidencias
 from .CapacitacionForm import CapacitacionForm, DateForm
-from .models import empleados, programasCapacitacion, areas, capacitacion, planAnual
+from .models import empleados, programasCapacitacion, areas, capacitacion, planAnual, incidencias
 from django.urls import reverse_lazy
 from pyexpat import model
 from django.db.models.query import QuerySet
@@ -201,15 +202,20 @@ class ActualizarPlanAnual(UpdateView):
     success_url = reverse_lazy('listarplan')
 
 
-class BuscarEmpleadoIncidencia (TemplateView):
+class BuscarEmpleadoIncidencia (CreateView):
    template_name='BuscarEmpleado.html'
+   model = incidencias
+   form_class='BuscarEmpleadoIncidencias'
 
    
 class Gincidencia(ListView):
+  
     def post(self, request, *args, **kwargs):
         buscar = request.POST['buscar']
         faltaa = int (request.POST['falta'])
         codigoT = empleados.objects.get(codigoEmpleado=buscar)
+        r = incidencias(codigoEmpleado=buscar,totalfaltas=1)
+        r.save()
         nombre_jefe = request.POST['jefe']
         name_emp = str(codigoT.nombres)
         app_emp = str(codigoT.apellidoPaterno)
