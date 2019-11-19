@@ -19,6 +19,7 @@ urlpatterns = [
     path('listaCapacitaciones', login_required(views.ListaCapacitacion.as_view()), name = 'listaCapacitaciones'),
     path('listaAreas', login_required(views.ListaArea.as_view()), name = 'listaAreas'),
     path('listaEmpleado', login_required(views.ListaEmpleado.as_view()), name = 'lista'),
+    path('reporteEmpleado/<int:pk>', login_required(views.ReporteEmpleado), name = 'reporte'),
     path('credencial/<int:pk>', login_required(views.Card), name = 'credencial'),
     path('listaAsignacion', login_required(views.ListaAsignacion.as_view()), name = 'listaAsignacion'),
     path('editarEmpleado/<int:pk>', views.ActualizarEmpleado.as_view(), name = 'editarEmpleado'),
