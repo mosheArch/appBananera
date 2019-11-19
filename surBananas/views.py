@@ -5,7 +5,8 @@ from .form import EmpleadosForm
 from .formProgramas import ProgramasCapacitacion
 from .AreasForm import AreasForm
 from .AnualForm import Anual
-from .BuscarEmpleadoIncidencias import BuscarEmpleadoIncidencias
+from .BuscarEmpleadoForm import IncidenciasForm
+
 from .CapacitacionForm import CapacitacionForm, DateForm
 from .models import empleados, programasCapacitacion, areas, capacitacion, planAnual, incidencias
 from django.urls import reverse_lazy
@@ -194,19 +195,17 @@ class ActualizarPlanAnual(UpdateView):
 
 
 class BuscarEmpleadoIncidencia (CreateView):
-   template_name='BuscarEmpleado.html'
    model = incidencias
-   form_class='BuscarEmpleadoIncidencias'
-
+   template_name='BuscarEmpleado.html'
+   form_class = IncidenciasForm
+   success_url='BuscarEmpleadoIncidencia'
    
 class Gincidencia(ListView):
   
     def post(self, request, *args, **kwargs):
-        buscar = request.POST['buscar']
+        buscar = request.POST['codigoEmpleado']
         faltaa = int (request.POST['falta'])
         codigoT = empleados.objects.get(codigoEmpleado=buscar)
-        r = incidencias(codigoEmpleado=buscar,totalfaltas=1)
-        r.save()
         nombre_jefe = request.POST['jefe']
         name_emp = str(codigoT.nombres)
         app_emp = str(codigoT.apellidoPaterno)
@@ -221,14 +220,14 @@ class Gincidencia(ListView):
         if faltaa==1:
              global a,b,c,parrafo
              a='Por medio del presente escrito se levanta la acta administrativa al C. ' +nombreEmpleado+ ' ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
-             b= 'el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia ' +nombreEmpleado+ ' del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
+             b= 'el motivo por el cual se levanta la presente acta es lo siguiente: inclumplimiento del reglamento interno de inocuidad, con fecha ' +fecha_actual+ ' del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera acta administrativa'
              c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
             
              parrafo = a+b+c
             
         elif faltaa==2:
-            a= 'Por medio del presente escrito se levanta la acta administrativa al C. hghhghghg ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo'
-            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia '+ nombreEmpleado+ ' del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
+            a= 'Por medio del presente escrito se levanta la acta administrativa al C.' +nombreEmpleado+ ' ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo'
+            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia '+ fecha_actual+ ' del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera acta administrativa'
             c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
             
             parrafo = a+b+c
@@ -236,11 +235,32 @@ class Gincidencia(ListView):
 
         elif faltaa==3:
             a= 'Por medio del presente escrito se levanta la acta administrativa al C. '+ nombreEmpleado +' ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
-            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por no asistir a sus labores del dia '+ nombreEmpleado +' del presente año sin ninguna justificacion o notificacion, quedando plasmada que esta es la primera adta administrativa'
+            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por falta de respeto a un compañero laboral, quedando plasmada que esta es la primera acta administrativa'
             c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
            
             parrafo = a+b+c
+        
+        elif faltaa==4:
+            a= 'Por medio del presente escrito se levanta la acta administrativa al C. '+ nombreEmpleado +' ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
+            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por no usar o usar inadecuadamente EPP, quedando plasmada que esta es la primera acta administrativa'
+            c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
            
+            parrafo = a+b+c
+
+        elif faltaa==5:
+            a= 'Por medio del presente escrito se levanta la acta administrativa  C. '+ nombreEmpleado +' ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
+            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por haberse presentado a laborar el dia de hoy ' +fecha_actual + ', bajo influencias de sustancias prohibidas/estupefacientes. Quedando plasmada que esta es la primera acta administrativa'
+            c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
+           
+            parrafo = a+b+c
+
+        elif faltaa==6:
+            a= 'Por medio del presente escrito se levanta la acta administrativa  C. '+ nombreEmpleado +' ya que  en el reglamento interno del centro de trabajo EJIDO MIGUEL ALEMAN, se plasman las sanciones pertinentes, a la falta o incumplimiento del mismo,'
+            b='el motivo por el cual se levanta la presente acta es lo siguiente: Por presentar varios retardos constantes. Quedando plasmada que esta es la primera acta administrativa'
+            c= 'con la cual ha sido sancionada, si en el dado caso hubiera reincidencia se procedera con una segunda y suspension de sus labores de forma temporal o si es el caso finalizacion del acuerdo laboral.'
+           
+            parrafo = a+b+c
+                 
         
         
         pdf.set_xy(8,70)
@@ -274,17 +294,9 @@ class Gincidencia(ListView):
         
         response = HttpResponse(pdf.output(dest='S').encode('latin-1'))
         response['Content-Type'] = 'application/pdf'
+        response['Content-Disposition'] = 'attachment;filename="documento.pdf"'
         return response
-# class PrintPlanAnual(View):
-#     def get(request):
-#         model =planAnual
-#         context_object_name =  'planlist'
-   
-#         card = {'card': context_object_name}
-#         return render(request, 'acta.html',card)
-#     model = planAnual
-#     template_name= 'acta.html'
-#     context_object_name =  'planlist'
+
 
 
 class PrintPlanAnual(ListView):

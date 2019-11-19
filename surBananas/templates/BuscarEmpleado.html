@@ -9,7 +9,7 @@
                             <h4 class="card-title m-0 font-weight-bold text-primary">CREAR ACTA ADMINISTRATIVA</h4>
                         </div>
                         <div class="card-body">
-                            <form action="Gincidencia" method="POST">{% csrf_token %}
+                            <form method="POST">{% csrf_token %}
                                 <div class="row">
 
                                    
@@ -19,16 +19,12 @@
                                     {% else %}
 
 
-                                       <div class="col-md-4">
+                                    <div class="col-md-4"></br>
+                                 
+                                        {{form.codigoEmpleado}}
+                                </div> 
 
-                                        <div class="form-group">
-                                           
-                                            form.codigoEmpleado
-                                        </div>
-                                            <!-- <div class="form-group"></br>
-                                                <input type="text" name="buscar" value="" placeholder="CODIGO TRABAJADOR" class="form-control">
-                                            </div> -->
-                                        </div>
+                                        {{form.totalfaltas}}
                                          <div class="col-md-4"></br>
                                                 <div class="form-group">
                                                     <input type="text" name="jefe" value="" placeholder="NOMBRE JEFE AREA" class="form-control">
@@ -41,16 +37,22 @@
                                                     <select id="my-select" class="form-control" name="falta">
                                                         <option value="">::::::::::::::::::::::::::::::::::::::::::::::::::::.</option>
                                                         <option value="1">FALTA INJUSTIFICADA</option>
-                                                        <option value="2">PLEITO</option>
-                                                        <option value="3">PLEITO2</option>
+                                                        <option value="2">INCUMPLIR REGLAMENTO</option>
+                                                        <option value="3">FALTA DE RESPETO</option>
+                                                        <option value="4">USAR INDADE.EPP</option>
+                                                        <option value="5">PRESENT. INFLUE. ESTUPEFACIENTES</option>
+                                                        <option value="6">RESTARDOS CONSTANTES</option>
                                                     </select>
                                                 </div>
                                         </div>
                                            
                                         <div class="col-md-12" align="center">
                                             <div class="form-group">
+                                                    <button type="submit"  formaction="Gincidencia"
+                                                    class="btn btn-block btn-success pull-right">GENERAR PDF</button>
                                                 <button type="submit"
-                                                 class="btn btn-block btn-success pull-right">GENERAR ACTA</button>
+                                                 class="btn btn-block btn-success pull-right">GENERAR INCIDENCIA</button>
+                                                 
                                             </div>
                                         </div>
 
