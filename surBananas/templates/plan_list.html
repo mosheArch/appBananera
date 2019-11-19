@@ -23,7 +23,7 @@
                 </style>
             <div class="card-body">
                 <div class="table-responsive">
-                        <button type="submit" hr></button>
+                        <a href="{% url 'PrintPlanAnual' %}" class="badge badge-success">IMPRIMIR</a>
                         <table id="example" class="table table-striped table-bordered">
 
                             <thead class=" text-primary">
@@ -61,7 +61,7 @@
                                         
                                         <a href="{% url 'eliminarPlanAnual' plan.id %}" class="badge badge-danger">ELIMINAR</a>
                                         <a href="{% url 'editarPlanAnual' plan.id %}" class="badge badge-warning">EDITAR</a>
-                                        <a href="{% url 'PrintPlanAnual' %}" class="badge badge-success">IMPRIMIR</a>
+                                        
                                     </td>
                                 </tr> 
                             {% endfor %}

@@ -1,4 +1,5 @@
 from django.db import models
+from .validators import name_capacitacion_validation
 class programasCapacitacion(models.Model):
     temaCapacitacion = models.TextField(max_length=50, blank=True, null=True)
     descripcionCapacitacion = models.TextField(max_length=100, blank=True, null=True)
@@ -156,7 +157,7 @@ class planAnual (models.Model):
 
 
 class incidencias (models.Model):
-    codigoEmpleado = models.ForeignKey(empleados,blank=True, null=True, on_delete=models.CASCADE)
+    codigoEmpleado = models.ForeignKey(empleados,null=True, blank=True, on_delete=models.CASCADE)
     totalfaltas = models.IntegerField(blank=True, null=True)
 
 
