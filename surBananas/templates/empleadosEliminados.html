@@ -28,7 +28,6 @@
                             <th>Fecha de Ingreso</th>
                             <th>ACCIONES<th>
                             
-                            <!-- <th>ACCIONES/ELIM</th> -->
 
                             </thead>
                             <tbody id="demo_info" >
@@ -43,10 +42,8 @@
                                     <td> {{ e.created_at }} </td>
                                     <td>
                                      <a href="{% url 'editarEmpleadoEliminado' e.codigoEmpleado %}" class="badge badge-warning">EDITAR</a>
-                                     
-
-                                                            
-                                    </td>
+                                   </td>
+                                   <td></td>
                          
                                 </tr>
                             {% endfor %}

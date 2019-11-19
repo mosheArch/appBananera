@@ -1,5 +1,6 @@
 from django.db import models
-from .validators import name_capacitacion_validation
+
+
 class programasCapacitacion(models.Model):
     temaCapacitacion = models.TextField(max_length=50, blank=True, null=True)
     descripcionCapacitacion = models.TextField(max_length=100, blank=True, null=True)

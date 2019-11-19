@@ -18,22 +18,28 @@
                         <table id="dataTable" class="table table-striped table-bordered nowrap" style="width:100%">
 
                             <thead class=" text-primary">
+                            <th>CodigoEmpleado</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
-                            <th>ACCIONES</th>
+                            <th>Capacitaciones</th>
+                            <th>Programas</th>
+                            
+                            
 
                             </thead>
                             <tbody id="demo-info">
                             {% for c in listaCapacitacion %}
                                 <tr>
-                                    
+                                    <td> {{ c.empleado.codigoEmpleado}} </td>
                                     <td> {{ c.empleado}} </td>
                                     <td> {{ c.empleado.apellidoPaterno }} {{ c.empleado.apellidoMaterno }}</td>
+                                    <td>{{c.nombreCapacitacion }}</td>
+                                    <td>{{c.programas}}</td>
                                     
-                                    <td>
+                                   {% comment %}  <td>
                                        
                                         <a href="{% url 'reporte' c.id %}" class="badge badge-warning">Reporte</a>
-                                    </td>
+                                    </td> {% endcomment %}
                                    
                                
                                 </tr>
