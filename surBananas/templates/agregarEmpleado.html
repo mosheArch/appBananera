@@ -2,7 +2,7 @@
 {% block contenido %}
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row"> 
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-warning">
@@ -135,6 +135,11 @@
                                                 {{form.estado }}
                                             </div>
                                         </div>
+                                         <div class="col-md-4"><br>
+                                            <div class="form-group">
+                                                {{form.status }}
+                                            </div>
+                                        </div> 
                                         <button type="submit" class="btn btn-success btn-block pull-right">Guardar</button>
 
                                         <div class="clearfix"></div>
@@ -149,4 +154,4 @@
             </div>
         </div>
     </div>
-{%endblock contenido %}
+{% endblock contenido %}

@@ -1,15 +1,17 @@
 {% extends 'indexAdmin.html' %}
 {% load static %}
 {% block contenido %}
+{% if reporte %}
+{% for r in reporte  %}
                 <div class="card my-3">
                         <div class="container-fluid">
                             <div class="row bg-info py-5">
                                 <div class="col-3 mx-auto">
-                                    <img class="rounded-circle img-fluid" style="margin-top: -2rem; margin-bottom: 1rem; max-width: 9rem;" src="{{empleado.imagen.url}}" alt="person">
+                                    <img class="rounded-circle img-fluid" style="margin-top: -2rem; margin-bottom: 1rem; max-width: 9rem;" src="{{r.empleado.imagen.url}}" alt="person">
                                 </div>
                                 <div class="col-12 text-center">
-                                    <h3 style="color:white;"><strong>{{empleado.nombres}} {{empleado.apellidoPaterno}} {{empleado.apellidoMaterno}}</strong></h3> 
-                                    <h4 style="color:white;"><strong>{{empleado.area.puesto}} en {{empleado.area.fase}} </strong></h3> 
+                                    <h3 style="color:white;"><strong>{{r.empleado.nombres}} {{r.empleado.apellidoPaterno}} {{r.empleado.apellidoMaterno}}</strong></h3> 
+                                    <h4 style="color:white;"><strong>{{r.empleado.area.puesto}} en {{r.empleado.area.fase}} </strong></h3> 
                                 </div>
                             </div>
                         
@@ -17,28 +19,28 @@
                                 <div class="col-sm text-center">
                                     <i class="fas fa-calendar-week"></i>
                                     <br> Capacitaciones programadas
-                                    <li>nombre</li>
-                                    <li>nombre</li>
-                                    <li>nombre</li>
+                                    
+                                        
+                                            <li>{{r.nombreCapacitacion}}</li>
+                                        
+                                    
+                                    
+                                    
+                                    
                                 </div>
                                 <div class="col-sm text-center">
                                     <i class="fas fa-calendar-check"></i>
                                     <br> Capacitaciones terminadas
-                                    <li>nombre</li>
+                                    <li>{{r.nombreCapacitacion}}</li>
                                     <li>nombre</li>
                                     <li>nombre</li>
                                 </div>
-                                <div class="col-sm text-center">
-                                    <i class="far fa-file-alt"></i>
-                                    <br> Actas Administrativas
-                                    <h4>1</h4>
-                                </div>
-                                <div class="col-sm text-center">
-                                    <i class="fas fa-user-times"></i>
-                                    <br> Faltas
-                                    <h4>3</h4>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+{% else %}
+   <li>No se encontro registros</li>
+{% endif %}
 {% endblock contenido %}

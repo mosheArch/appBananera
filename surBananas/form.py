@@ -3,8 +3,8 @@ from .models import empleados
 class EmpleadosForm(forms.ModelForm):
     class Meta:
         model = empleados
-        fields = ['codigoEmpleado','nombres', 'apellidoPaterno', 'apellidoMaterno', 'edad', 'fechaNacimiento', 'numeroSeguroSocial','curp', 'rfc', 'estadoCivil',
-                  'nacionalidad', 'area', 'telefono', 'celular', 'correoElectronico', 'direccion', 'ciudad', 'colonia', 'codigoPostal', 'estado', 'imagen']
+        fields = ['codigoEmpleado','nombres', 'apellidoPaterno', 'apellidoMaterno', 'edad', 'fechaNacimiento','fechaEliminacion','motivoEliminacion', 'numeroSeguroSocial','curp', 'rfc', 'estadoCivil',
+                  'nacionalidad', 'area', 'telefono', 'celular', 'correoElectronico', 'direccion', 'ciudad', 'colonia', 'codigoPostal', 'estado', 'imagen', 'status']
 
         labels = {'class': 'bmd-label-floating',
                   'codigoEmpleado': '',
@@ -13,6 +13,8 @@ class EmpleadosForm(forms.ModelForm):
                   'apellidoMaterno': '',
                   'edad': '',
                   'fechaNacimiento': '',
+                  'fechaEliminacion': '',
+                  'motivoEliminacion': '',
                   'numeroSeguroSocial': '',
                   'curp': '',
                   'rfc': '',
@@ -27,7 +29,8 @@ class EmpleadosForm(forms.ModelForm):
                   'colonia': '',
                   'codigoPostal': '',
                   'estado': '',
-                  'imagen': ''
+                  'imagen': '',
+                  'status': ''
                   }
 
         widgets = {
@@ -73,6 +76,21 @@ class EmpleadosForm(forms.ModelForm):
                     'type': 'date',
                     'class': 'form-control',
                     'placeholder': 'Fecha de Nacimiento',
+
+                }
+            ),
+            'fechaEliminacion': forms.TextInput(
+                attrs={
+                    'type': 'date',
+                    'class': 'form-control',
+                    'placeholder': 'Fecha de Eliminación',
+
+                }
+            ),
+             'motivoEliminacion': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Motivos de Eliminacion',
 
                 }
             ),
@@ -179,6 +197,14 @@ class EmpleadosForm(forms.ModelForm):
                 }
             ),
             'estado': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Estado',
+
+                }
+            ),
+
+             'status': forms.CheckboxInput(
                 attrs={
                     'class': 'form-control',
                     'placeholder': 'Estado',

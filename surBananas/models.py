@@ -119,7 +119,10 @@ class empleados(models.Model):
     estado = models.CharField(max_length=20, blank=True, null=True)
     imagen = models.ImageField(upload_to="fotos/", blank=True, null=True)
     area = models.ForeignKey(areas, on_delete=models.CASCADE)
-    status = models.BooleanField('Estado', default= True)
+    
+    status = models.BooleanField('¡Dar de baja!', default= True)    
+    fechaEliminacion = models.DateField(auto_now=False, blank=True, null=True)
+    motivoEliminacion = models.CharField(max_length=500, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     def __str__(self):
         if self.nombres == None:

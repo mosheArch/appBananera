@@ -38,6 +38,28 @@
                    {% endif %}
                     <!-- Earnings (Monthly) Card Example -->
 
+                    <!-- Earnings (Monthly) Card Example -->
+                    {% if empleadoEliminado %}
+                    <div class="col-xl-auto col-md-3 mb-auto">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href="{% url 'eliminados' %}">Empleados Eliminados</a></div>
+                                        <div class="h2 mb-0 font-weight-bold text-gray-800">{{ empleadoEliminado.count }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-user-times fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        {% else %}
+                        <h5>No hay Empleados Eliminados </h5>
+                   {% endif %}
+                    <!-- Earnings (Monthly) Card Example -->
+
 
                 {% if area %}
 
@@ -91,7 +113,7 @@
                     {% endif %}
                     <!-- Pending Requests Card Example -->
                 {% if capacitar %}
-                    <div class="col-xl-auto col-md-3 mb-auto">
+                    <div class="col-xl-auto col-md-3 mb-auto"><br>
                         <div class="card border-left-warning shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -127,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                 {% else %}
+                 {% else %} 
                     <div class="col-xl-auto col-md-auto mb-auto">
                         <div class="card border-left-warning shadow h-100 py-2">
                             <div class="card-body">

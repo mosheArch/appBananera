@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DeleteView,View
 from django.views import generic
 from .form import EmpleadosForm
+from .formEliminarEmp import EmpleadosFormEliminar
 from .formProgramas import ProgramasCapacitacion
 from .AreasForm import AreasForm
 from .AnualForm import Anual
@@ -28,11 +29,12 @@ c=''
 
 def Dashboard(request):
     empleado= empleados.objects.filter(status=True)
+    empleadoEliminado= empleados.objects.filter(status=False)
     area = areas.objects.filter(status=True)
     programa = programasCapacitacion.objects.filter(status=True)
     capacitar = capacitacion.objects.filter(status=True)
     capacitacionTerminada = capacitacion.objects.filter(status=False)
-    dashboard = {'empleado': empleado, 'area': area, 'programa': programa, 'capacitar': capacitar, 'capacitacionTerminada': capacitacionTerminada}
+    dashboard = {'empleado': empleado, 'area': area, 'programa': programa, 'capacitar': capacitar, 'capacitacionTerminada': capacitacionTerminada, 'empleadoEliminado': empleadoEliminado}
 
     return render(request, 'index.html',dashboard)
 
@@ -77,6 +79,12 @@ class ListaEmpleado(ListView):
     template_name = 'empleados.html'
     context_object_name = 'empleados'
     queryset = empleados.objects.filter(status=True)
+
+class EmpleadosEliminados(ListView):
+    model = empleados
+    template_name = 'empleadosEliminados.html'
+    context_object_name = 'eliminados'
+    queryset = empleados.objects.filter(status=False)
    
 
 class ActualizarEmpleado(UpdateView):
@@ -85,15 +93,21 @@ class ActualizarEmpleado(UpdateView):
     form_class = EmpleadosForm
     success_url = reverse_lazy('lista')
 
-class EliminarEmpleado(DeleteView):
-    model = empleados
-    template_name = 'empleados_confirm_delete.html'
+  
 
-    def post(self,request, pk, *args, **kwargs):
-        object = empleados.objects.get(codigoEmpleado = pk)
-        object.status = False
-        object.save()
-        return redirect('lista')
+class EliminarEmpleado(UpdateView):    
+    model = empleados
+    template_name = 'empleados_delete.html'
+    form_class = EmpleadosFormEliminar
+    success_url = reverse_lazy('eliminados')
+
+class ActualizarEmpleadoEliminado(UpdateView):
+    model = empleados
+    template_name = 'empleados_deleteEditar.html'
+    form_class = EmpleadosFormEliminar
+    success_url = reverse_lazy('eliminados')
+
+
 
 class CrearArea(CreateView):
     model= areas
@@ -136,6 +150,12 @@ class ListaAsignacion(ListView):
     context_object_name = 'listaCapacitacion'
     queryset = capacitacion.objects.filter(status=True)
 
+class ListaParaReporte(ListView):
+    model = capacitacion
+    template_name = 'listaReporte.html'
+    context_object_name = 'listaCapacitacion'
+    queryset = capacitacion.objects.filter(status=True)
+
 class Terminadas(ListView):
     model = capacitacion
     template_name = 'capacitacionesterminadas.html'
@@ -167,11 +187,14 @@ def Card(request, pk):
     return render(request, 'card.html',card)
 
 
-def ReporteEmpleado(request, pk):
+def ReporteEmpleado(request, pk,):
+    #e =  capacitacion.objects.filter(id=pk)
+    reporte = capacitacion.objects.select_related('empleado').filter(id=pk)
+    
+    
+    #reporte = capacitacion.objects.filter(id=pk)
 
-    reporte = empleados.objects.get(codigoEmpleado=pk)
-
-    card = {'empleado': reporte}
+    card = {'reporte': reporte, }
 
     return render(request, 'reporteEmpleado.html',card)
 

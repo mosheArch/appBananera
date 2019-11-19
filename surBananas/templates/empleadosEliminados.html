@@ -1,0 +1,68 @@
+ {% extends 'indexAdmin.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block title %}
+    <title>Surbananas - empleados</title>
+{% endblock title%}
+{% block contenido %}
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">LISTA DE EMPLEADOS ELIMINADOS</h4><br>
+<!--                <input class="form-control border-bottom-primary" id="myInput" type="text" placeholder="Buscar...">-->
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    {% if eliminados %}
+
+                        <table id="dataTable" class="table table-striped table-bordered nowrap" style="width:100%">
+
+
+                            <thead class=" text-primary">
+                            <th>Codigo de Empleado</th>
+                            <th>Nombres</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Motivos de eliminación</th>
+                            <th>Fecha de eliminación</th>
+                            <th>Fecha de Ingreso</th>
+                            <th>ACCIONES<th>
+                            
+                            <!-- <th>ACCIONES/ELIM</th> -->
+
+                            </thead>
+                            <tbody id="demo_info" >
+                            {% for e in eliminados %}
+                                <tr>
+                                    <td> {{ e.codigoEmpleado }} </td>
+                                    <td> {{ e.nombres }} </td>
+                                    <td> {{ e.apellidoPaterno }} </td>
+                                    <td> {{ e.apellidoMaterno }} </td>
+                                    <td> {{ e.motivoEliminacion }} </td>
+                                    <td> {{ e.fechaEliminacion }} </td>
+                                    <td> {{ e.created_at }} </td>
+                                    <td>
+                                     <a href="{% url 'editarEmpleadoEliminado' e.codigoEmpleado %}" class="badge badge-warning">EDITAR</a>
+                                     
+
+                                                            
+                                    </td>
+                         
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <h1>NOT FOUND</h1>
+                        </div>
+                    {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+
+    </html>
+{% endblock contenido %}

@@ -1,0 +1,53 @@
+{% extends 'indexAdmin.html' %}
+{% block contenido %}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title m-0 font-weight-bold text-primary" >  EMPLEADO ELIMINADO</h4>
+                        </div>
+                        <div class="card-body">
+                                          <div class="alert alert-danger" align="center">
+                                    <span><b> <h3>EDITAR EMPLADO ELIMINADO</h3>  </b> <h4>{{ empleados.nombres }} {{ empleados.apellidoPaterno }} {{ empleados.apellidoMaterno }}</h4></span>
+                                </div>
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="row">
+
+                                    {% csrf_token %}
+                                    {% if error %}
+                                        <h1>{{ error }}</h1>
+
+                                    {% else %}
+                                        
+                                        <div class="col-md-3"><br>REACTIVAR 
+                                            <div class="form-group">
+                                                {{form.status }}
+                                            </div>
+                                        </div> 
+                                        <div class="col-md-12"><br>
+                                            <div class="form-group">
+                                                {{form.fechaEliminacion}}
+                                            </div>
+                                        </div> 
+                                        <div class="col-md-12"><br>
+                                            <div class="form-group">
+                                                {{form.motivoEliminacion }}
+                                            </div>
+                                        </div> 
+                                        <button type="submit" class="btn btn-success btn-block pull-right">Guardar</button>
+
+                                        <div class="clearfix"></div>
+                                    {% endif %}
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}
