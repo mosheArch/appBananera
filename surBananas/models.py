@@ -78,7 +78,7 @@ class areas(models.Model):
 
 class empleados(models.Model):
     # choice_nacionalidad ={('', 'Nacionaidad'),('Mexicana','Mexicana'),('Extranjero','Extranjero')}
-    choice_fase ={('', 'Areas'),('Area 1','Area 1'),('Area 2','Area 2'),('Area 3','Area 3'),('Area 4','Area 4'),('Area 5','Area 5'),('Unidad de Empaque','Unidad de Empaque'),('Unidad de Producción','Unidad de Producción')}
+    choice_fase ={('', 'Areas'),('Area 1','Area 1'),('Area 2','Area 2'),('Area 3','Area 3'),('Area 4','Area 4'),('Area 5','Area 5'),('Unidad de Empaque','Unidad de Empaque'),('Unidad de Producción','Unidad de Producción'),('Nutricion','Nutricion'),('Riego','Riego'),('Moko','Moko'),('Sigatoka','Sigatoka'), ('Seguridad','Seguridad'),('Otros','Otros')}
     choice_areas ='Areas'
     """choice_area =(('','Área'),
         ('Empaque',(
