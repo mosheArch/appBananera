@@ -15,7 +15,6 @@ class programasCapacitacion(models.Model):
 
 class areas(models.Model):
     choice_riesgo ={('', 'Tipos de riesgo'),('Físico','Físico'),('Quimico','Quimico'), ('Físico y Quimico','Físico y Quimico')}
-    choice_fase ={('', 'Areas'),('Area 1','Area 1'),('Area 2','Area 2'),('Area 3','Area 3'),('Area 4','Area 4'),('Area 5','Area 5'),('Unidad de Empaque','Unidad de Empaque'),('Unidad de Producción','Unidad de Producción')}
     choice_puesto= (('', 'Labor'),
                    ('1.- Unidad de Empaque', (
                        ('Recepción de Frutas', 'Recepción de Frutas'),
@@ -63,7 +62,6 @@ class areas(models.Model):
                    )),
 
                    )
-    fase = models.CharField(choices=choice_fase, default='', max_length=20, blank=True, null=True)
     puesto = models.CharField(choices=choice_puesto,max_length=20, blank=True, null=True, default='')
     actividad = models.CharField(max_length=500, blank=True, null=True)
     tiposRiesgo = models.CharField(choices=choice_riesgo, default='', max_length=20, blank=True, null=True)
@@ -79,7 +77,8 @@ class areas(models.Model):
 
 
 class empleados(models.Model):
-    choice_nacionalidad ={('', 'Nacionaidad'),('Mexicana','Mexicana'),('Extranjero','Extranjero')}
+    # choice_nacionalidad ={('', 'Nacionaidad'),('Mexicana','Mexicana'),('Extranjero','Extranjero')}
+    choice_fase ={('', 'Areas'),('Area 1','Area 1'),('Area 2','Area 2'),('Area 3','Area 3'),('Area 4','Area 4'),('Area 5','Area 5'),('Unidad de Empaque','Unidad de Empaque'),('Unidad de Producción','Unidad de Producción')}
     choice_areas ='Areas'
     """choice_area =(('','Área'),
         ('Empaque',(
@@ -98,17 +97,18 @@ class empleados(models.Model):
         )),
 
     )"""
-    codigoEmpleado = models.IntegerField(unique=True, primary_key=True)
+    fase = models.CharField(choices=choice_fase, default='', max_length=20, blank=True, null=True)
+    codigoEmpleado = models.CharField(max_length=100, unique=True, primary_key=True)
     nombres = models.CharField(max_length=20, blank=True, null=True)
     apellidoPaterno = models.CharField(max_length=20, blank=True, null=True)
     apellidoMaterno = models.CharField(max_length=20, blank=True, null=True)
     edad = models.IntegerField(blank=True, null=True)
     fechaNacimiento = models.DateField(auto_now=False, blank=True, null=True)
-    numeroSeguroSocial = models.IntegerField(blank=True, null=True)
+    numeroSeguroSocial = models.CharField(max_length=100, blank=True, null=True)
     curp = models.CharField(max_length=20, blank=True, null=True)
     rfc = models.CharField(max_length=20, blank=True, null=True)
     estadoCivil = models.CharField(max_length=20, blank=True, null=True)
-    nacionalidad = models.CharField(choices=choice_nacionalidad, default='', max_length=20, blank=False)
+    nacionalidad = models.CharField(max_length=100,blank=True, null=False)
     #area = models.CharField(choices=choice_area, default='', max_length=30, blank=False)
     #labor = models.CharField(max_length=20, blank=True, null=True)
     telefono = models.IntegerField(blank=True, null=True)

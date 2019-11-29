@@ -49,7 +49,7 @@
                             <tbody id="demo_info" >
                             {% for e in empleados %}
                                 <tr>
-                                    <td> {{ e.codigoEmpleado }} </td>
+                                    <td> 0{{ e.codigoEmpleado }} </td>
                                     <td> {{ e.nombres }} </td>
                                     <td> {{ e.apellidoPaterno }} </td>
                                     <td> {{ e.apellidoMaterno }} </td>
@@ -60,7 +60,7 @@
                                     <td> {{ e.rfc }} </td>
                                     <td> {{ e.estadoCivil }} </td>
                                     <td> {{ e.nacionalidad }} </td>
-                                    <td> {{ e.area.fase }}</td>
+                                    <td> {{ e.fase}}</td>
                                     <td> {{ e.area.puesto }} </td>
                                     <td> {{ e.telefono }} </td>
                                     <td> {{ e.celular }} </td>

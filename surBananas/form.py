@@ -3,10 +3,11 @@ from .models import empleados
 class EmpleadosForm(forms.ModelForm):
     class Meta:
         model = empleados
-        fields = ['codigoEmpleado','nombres', 'apellidoPaterno', 'apellidoMaterno', 'edad', 'fechaNacimiento','fechaEliminacion','motivoEliminacion', 'numeroSeguroSocial','curp', 'rfc', 'estadoCivil',
+        fields = ['fase','codigoEmpleado','nombres', 'apellidoPaterno', 'apellidoMaterno', 'edad', 'fechaNacimiento','fechaEliminacion','motivoEliminacion', 'numeroSeguroSocial','curp', 'rfc', 'estadoCivil',
                   'nacionalidad', 'area', 'telefono', 'celular', 'correoElectronico', 'direccion', 'ciudad', 'colonia', 'codigoPostal', 'estado', 'imagen', 'status']
 
         labels = {'class': 'bmd-label-floating',
+                  'fase':'',
                   'codigoEmpleado': '',
                   'nombres': '',
                   'apellidoPaterno': '',
@@ -34,6 +35,12 @@ class EmpleadosForm(forms.ModelForm):
                   }
 
         widgets = {
+            'fase': forms.Select(
+                attrs={
+                    'class':'form-control',
+                    
+                }
+            ),
 
             'codigoEmpleado': forms.TextInput(
                 attrs={
@@ -122,9 +129,11 @@ class EmpleadosForm(forms.ModelForm):
 
                 }
             ),
-            'nacionalidad': forms.Select(
+            'nacionalidad': forms.TextInput(
                 attrs={
-                    'class': 'form-control'
+                    'class': 'form-control',
+                    'placeholder': 'Nacionalidad',
+
                 }
             ),
             'area': forms.Select(

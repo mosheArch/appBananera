@@ -3,10 +3,10 @@ from .models import areas
 class AreasForm(forms.ModelForm):
     class Meta:
         model = areas
-        fields = ['fase', 'puesto', 'actividad', 'tiposRiesgo', 'regionAnatomica', 'eppUtilizar']
+        fields = ['puesto', 'actividad', 'tiposRiesgo', 'regionAnatomica', 'eppUtilizar']
 
         labels = {'class': 'bmd-label-floating',
-                  'fase': '',
+                  
                   'puesto': '',
                   'actividad': '',
                   'tiposRiesgo': '',
@@ -14,13 +14,7 @@ class AreasForm(forms.ModelForm):
                   'empleado': '',
                   }
         widgets = {
-            'fase': forms.Select(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Fase',
-
-                }
-            ),
+           
             'puesto': forms.Select(
                 attrs={
                     'class': 'form-control',
