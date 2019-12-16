@@ -37,6 +37,7 @@ class areas(models.Model):
                        ('Bodega de Cartón', 'Bodega de Cartón'),
                        ('Evaluador de Cajas', 'Evaluador de Cajas'),
                        ('Jefe de Empaque', 'Jefe de Empaque'),
+                       ('Recuperador de Pita','Recuperador de Pita'),
 
                    )),
                    ('2.- Unidad Producción', (
