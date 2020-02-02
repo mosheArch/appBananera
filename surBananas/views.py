@@ -335,3 +335,7 @@ class PrintPlanAnual(ListView):
     model = planAnual
     template_name= 'acta.html'
     context_object_name =  'planlist'
+
+
+
+    

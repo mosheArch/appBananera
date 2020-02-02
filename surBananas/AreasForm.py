@@ -15,9 +15,10 @@ class AreasForm(forms.ModelForm):
                   }
         widgets = {
            
-            'puesto': forms.Select(
+            'puesto': forms.TextInput(
                 attrs={
                     'class': 'form-control',
+                    'placeholder': 'NUEVA LABOR'
 
                 }
             ),
