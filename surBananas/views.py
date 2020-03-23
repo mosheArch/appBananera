@@ -17,7 +17,7 @@ from telnetlib import STATUS
 from django.http import HttpResponse
 from django.views.generic import View
 from django.conf import settings
-from fpdf import FPDF
+from fpdf import fpdf
 from datetime import datetime
 from .fecha import *
 
@@ -338,4 +338,3 @@ class PrintPlanAnual(ListView):
 
 
 
-    
